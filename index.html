@@ -204,10 +204,9 @@ background:var(--accent);
 color:black;
 }
 .about-section{
-padding:100px 20px;
-background:linear-gradient(135deg,#0f172a,#020617);
+min-height:100vh;
 display:flex;
-justify-content:center;
+align-items:center;
 }
 
 .about-container{
@@ -225,6 +224,7 @@ backdrop-filter:blur(10px);
 border:1px solid rgba(255,255,255,0.1);
 box-shadow:0 0 40px rgba(0,0,0,0.5);
 transition:0.3s;
+flex-direction:row; /* WAJIB horizontal */
 }
 
 .about-card:hover{
@@ -741,13 +741,12 @@ gap:15px;
 overflow-x:auto;
 }
 
-/* ABOUT */
 .about-card{
-flex-direction:column;
-text-align:center;
+flex-direction:row;
 }
 
 }
+
 
 
 /* =========================
@@ -849,7 +848,6 @@ font-size:14px;
 
 /* ABOUT */
 .about-card{
-flex-direction:column;
 padding:20px;
 }
 
@@ -937,7 +935,10 @@ padding:8px;
 .project-desc{
 font-size:13px;
 }
-
+.about-card{
+flex-direction:column;
+text-align:center;
+}
 /* MOBILE EXPERIENCE FIX */
 @media (max-width:768px){
 
