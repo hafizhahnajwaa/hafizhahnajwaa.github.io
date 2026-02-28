@@ -4,204 +4,321 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hafizhah Najwa | Portfolio</title>
+<title>Hafizhah Najwa | Sunflower Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 
+/* ROOT */
+
 :root{
---navy:#0a192f;
---navy-light:#112240;
+
+--primary:#0a192f;
+--secondary:#112240;
+--accent:#ffcc00;
 --white:#e6f1ff;
 --gray:#8892b0;
---border:#233554;
+--card:#112240;
+
 }
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:Poppins,sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:var(--navy);
+background:var(--primary);
 color:var(--white);
 }
 
-/* container */
+/* NAVBAR */
+
+nav{
+
+position:fixed;
+top:0;
+width:100%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:18px 40px;
+
+background:rgba(10,25,47,.7);
+backdrop-filter:blur(10px);
+
+z-index:1000;
+
+}
+
+nav h2{
+color:var(--accent);
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+margin-left:25px;
+transition:.3s;
+
+}
+
+nav a:hover{
+color:var(--accent);
+}
+
+/* WELCOME */
+
+#welcome{
+
+height:100vh;
+
+background:
+
+linear-gradient(rgba(10,25,47,.7),rgba(10,25,47,.9)),
+url("https://images.unsplash.com/photo-1599270613570-a620f2e59f75?q=80&w=1920&auto=format&fit=crop");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+}
+
+#welcome h1{
+
+font-size:60px;
+margin-bottom:10px;
+
+}
+
+#welcome p{
+
+color:#ddd;
+margin-bottom:30px;
+
+}
+
+.btn{
+
+padding:14px 40px;
+
+border:1px solid var(--accent);
+color:var(--accent);
+
+text-decoration:none;
+border-radius:8px;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+background:var(--accent);
+color:black;
+
+}
+
+/* SECTION */
+
+section{
+padding:100px 20px;
+}
+
 .container{
 max-width:1100px;
 margin:auto;
-padding:0 20px;
 }
 
-/* header */
-header{
+/* TITLE */
+
+.title{
+
 text-align:center;
-padding:80px 20px 60px;
-border-bottom:1px solid var(--border);
+font-size:32px;
+margin-bottom:50px;
+color:var(--accent);
+
 }
 
-.profile-img{
+/* PROFILE */
+
+.profile{
+
+text-align:center;
+
+}
+
+.profile img{
+
 width:160px;
-height:160px;
 border-radius:50%;
-object-fit:cover;
-border:3px solid var(--white);
 margin-bottom:20px;
-transition:0.3s;
+
+border:3px solid var(--accent);
+
 }
 
-.profile-img:hover{
-transform:scale(1.05);
-}
+.social a{
 
-h1{
-font-size:36px;
-margin-bottom:10px;
-}
-
-.subtitle{
+margin:10px;
+font-size:25px;
 color:var(--gray);
-margin-bottom:20px;
+transition:.3s;
+
 }
 
-.github-btn{
-display:inline-block;
-padding:12px 28px;
-border:1px solid var(--white);
-color:var(--white);
-text-decoration:none;
-border-radius:6px;
-transition:0.3s;
+.social a:hover{
+
+color:var(--accent);
+
 }
 
-.github-btn:hover{
-background:var(--white);
-color:var(--navy);
-}
+/* EDUCATION */
 
-/* section */
-section{
-padding:70px 0;
-}
+.timeline{
 
-.section-title{
-font-size:28px;
-margin-bottom:40px;
-text-align:center;
-position:relative;
-}
-
-.section-title::after{
-content:"";
-width:60px;
-height:2px;
-background:var(--white);
-display:block;
-margin:10px auto;
-}
-
-/* about */
-.about{
-text-align:center;
 max-width:700px;
 margin:auto;
-color:var(--gray);
-line-height:1.8;
+
 }
 
-/* grid */
+.edu-item{
+
+display:flex;
+align-items:center;
+
+background:var(--card);
+
+padding:20px;
+
+margin-bottom:20px;
+
+border-left:4px solid var(--accent);
+
+border-radius:8px;
+
+transition:.3s;
+
+}
+
+.edu-item:hover{
+
+transform:translateX(10px);
+
+box-shadow:0 0 15px rgba(255,204,0,.3);
+
+}
+
+.edu-item i{
+
+font-size:25px;
+margin-right:15px;
+color:var(--accent);
+
+}
+
+/* GRID */
+
 .grid{
+
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
+
 }
 
-/* card */
+/* CARD */
+
 .card{
-background:var(--navy-light);
+
+background:var(--card);
+
 padding:25px;
-border-radius:8px;
-border:1px solid var(--border);
-transition:0.3s;
+
+border-radius:10px;
+
+transition:.3s;
+
 }
 
 .card:hover{
-transform:translateY(-5px);
-border-color:var(--white);
+
+transform:translateY(-10px);
+
+box-shadow:0 0 15px rgba(255,204,0,.3);
+
 }
 
-/* project */
-.project-title{
-font-weight:600;
+.card i{
+
+font-size:30px;
 margin-bottom:10px;
+color:var(--accent);
+
 }
 
-.project-desc{
-color:var(--gray);
-font-size:14px;
-margin-bottom:15px;
-}
+.card a{
 
-.project-link{
-color:var(--white);
+color:var(--accent);
 text-decoration:none;
-font-size:14px;
-border-bottom:1px solid transparent;
+
 }
 
-.project-link:hover{
-border-bottom:1px solid var(--white);
-}
+/* FOOTER */
 
-/* skills */
-.skill-title{
-font-weight:600;
-margin-bottom:8px;
-}
-
-/* journal */
-.journal-img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:6px;
-margin-bottom:15px;
-}
-
-/* footer */
 footer{
+
 text-align:center;
 padding:30px;
-border-top:1px solid var(--border);
 color:var(--gray);
+
 }
 
-/* animation */
-.fade{
+/* ANIMATION */
+
+.reveal{
+
 opacity:0;
-transform:translateY(20px);
+transform:translateY(40px);
 transition:1s;
+
 }
 
-.fade.show{
+.reveal.active{
+
 opacity:1;
 transform:translateY(0);
+
 }
 
-/* responsive */
-@media(max-width:600px){
+/* RESPONSIVE */
 
-h1{
-font-size:28px;
+@media(max-width:768px){
+
+#welcome h1{
+font-size:40px;
 }
 
-.profile-img{
-width:130px;
-height:130px;
+nav{
+padding:15px;
 }
 
 }
@@ -211,75 +328,171 @@ height:130px;
 
 <body>
 
-<header class="fade">
+<!-- NAVBAR -->
 
-<!-- GANTI FOTO DISINI -->
-<img src="https://github.com/hafizhahnajwa20.png" class="profile-img">
+<nav>
 
-<h1>Hafizhah Najwa</h1>
+<h2>HN</h2>
 
-<p class="subtitle">
-Information Systems Student • Web Developer • Data Analyst
-</p>
+<div>
 
-<a href="https://github.com/hafizhahnajwa20" class="github-btn" target="_blank">
-Visit GitHub
+<a href="#about">About</a>
+<a href="#education">Education</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+
+<a href="https://github.com/hafizhahnajwa20" target="_blank">
+<i class="fab fa-github"></i>
 </a>
 
-</header>
+</div>
 
+</nav>
 
-<section class="fade">
+<!-- WELCOME -->
 
-<div class="container">
+<section id="welcome">
 
-<h2 class="section-title">About Me</h2>
+<h1 id="typing"></h1>
 
-<p class="about">
-I am an Information Systems student at Institut Teknologi Bacharuddin Jusuf Habibie. I specialize in web development, system development, and data analysis. I have experience building library systems, recommendation systems, and chatbot applications. I am passionate about creating useful and efficient technology solutions.
+<p>Information Systems Student • Web Developer • Data Analyst</p>
+
+<a href="#about" class="btn">Explore Portfolio</a>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="reveal">
+
+<div class="container profile">
+
+<img src="https://github.com/hafizhahnajwa20.png">
+
+<h2>Hafizhah Najwa</h2>
+
+<p>
+Information Systems student passionate about Web Development, Machine Learning, and Data Analysis.
 </p>
+
+<div class="social">
+
+<a href="https://github.com/hafizhahnajwa20" target="_blank">
+<i class="fab fa-github"></i>
+</a>
+
+<a href="https://www.linkedin.com/in/hafizhah-najwa-586740265/" target="_blank">
+<i class="fab fa-linkedin"></i>
+</a>
+
+<a href="https://www.instagram.com/hafizhahnajwaa/" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+</div>
 
 </div>
 
 </section>
 
+<!-- EDUCATION -->
 
-<section class="fade">
+<section id="education" class="reveal">
 
 <div class="container">
 
-<h2 class="section-title">Projects</h2>
+<h2 class="title">Education</h2>
+
+<div class="timeline">
+
+<div class="edu-item">
+<i class="fa fa-school"></i>
+<div>
+<h3>SDN 30 Parepare</h3>
+<p>Primary School</p>
+</div>
+</div>
+
+<div class="edu-item">
+<i class="fa fa-school"></i>
+<div>
+<h3>MTsN Parepare</h3>
+<p>Islamic Junior High School</p>
+</div>
+</div>
+
+<div class="edu-item">
+<i class="fa fa-laptop-code"></i>
+<div>
+<h3>SMK Negeri 3 Parepare</h3>
+<p>Computer and Network Engineering (TKJ)</p>
+</div>
+</div>
+
+<div class="edu-item">
+<i class="fa fa-graduation-cap"></i>
+<div>
+<h3>Institut Teknologi BJ Habibie</h3>
+<p>S1 • Faculty of Science • Information Systems</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects" class="reveal">
+
+<div class="container">
+
+<h2 class="title">Projects</h2>
 
 <div class="grid">
 
 <div class="card">
-<div class="project-title">Public Library Management System</div>
-<div class="project-desc">
-Web-based system for managing library operations.
-</div>
-<a href="https://github.com/hafizhahnajwa20/public-library-management-system" class="project-link">
+
+<i class="fa fa-book"></i>
+
+<h3>Library Management System</h3>
+
+<p>Web-based public library system</p>
+
+<a href="https://github.com/hafizhahnajwa20" target="_blank">
 View Project
 </a>
+
 </div>
 
 <div class="card">
-<div class="project-title">Recommendation System</div>
-<div class="project-desc">
-Machine learning system for product recommendations.
-</div>
-<a href="https://github.com/hafizhahnajwa20/product-recommendation-system" class="project-link">
+
+<i class="fa fa-robot"></i>
+
+<h3>Chatbot System</h3>
+
+<p>Automation chatbot system</p>
+
+<a href="https://github.com/hafizhahnajwa20" target="_blank">
 View Project
 </a>
+
 </div>
 
 <div class="card">
-<div class="project-title">Kelurahan Chatbot</div>
-<div class="project-desc">
-Chatbot for public service automation.
-</div>
-<a href="https://github.com/hafizhahnajwa20/kelurahan-service-chatbot" class="project-link">
+
+<i class="fa fa-chart-line"></i>
+
+<h3>Recommendation System</h3>
+
+<p>Machine learning recommendation system</p>
+
+<a href="https://github.com/hafizhahnajwa20" target="_blank">
 View Project
 </a>
+
 </div>
 
 </div>
@@ -288,34 +501,32 @@ View Project
 
 </section>
 
+<!-- SKILLS -->
 
-<section class="fade">
+<section id="skills" class="reveal">
 
 <div class="container">
 
-<h2 class="section-title">Skills</h2>
+<h2 class="title">Skills</h2>
 
 <div class="grid">
 
 <div class="card">
-<div class="skill-title">Web Development</div>
-<p class="project-desc">
-HTML, CSS, JavaScript, PHP
-</p>
+<i class="fa fa-code"></i>
+<h3>Frontend</h3>
+<p>HTML, CSS, JavaScript</p>
 </div>
 
 <div class="card">
-<div class="skill-title">Data Analysis</div>
-<p class="project-desc">
-Python, Pandas, Machine Learning
-</p>
+<i class="fa fa-server"></i>
+<h3>Backend</h3>
+<p>PHP, MySQL</p>
 </div>
 
 <div class="card">
-<div class="skill-title">Tools</div>
-<p class="project-desc">
-GitHub, MySQL, Microsoft Office
-</p>
+<i class="fa fa-brain"></i>
+<h3>Data Analysis</h3>
+<p>Python, Machine Learning</p>
 </div>
 
 </div>
@@ -323,58 +534,56 @@ GitHub, MySQL, Microsoft Office
 </div>
 
 </section>
-
-
-<section class="fade">
-
-<div class="container">
-
-<h2 class="section-title">Journal</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<img src="images/journal.jpg" class="journal-img">
-
-<div class="project-title">My Technology Journey</div>
-
-<p class="project-desc">
-Documenting my growth and projects in technology.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
 
 <footer>
 
-© 2026 Hafizhah Najwa
+© 2026 Hafizhah Najwa • Sunflower Portfolio
 
 </footer>
 
-
 <script>
 
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
+/* typing */
+
+const text="Hafizhah Najwa";
+
+let i=0;
+
+function typing(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(typing,80);
+
 }
-});
+
+}
+
+typing();
+
+/* reveal */
+
+function reveal(){
+
+document.querySelectorAll(".reveal").forEach(el=>{
+
+if(el.getBoundingClientRect().top<window.innerHeight-100){
+
+el.classList.add("active");
+
+}
+
 });
 
-document.querySelectorAll(".fade").forEach(el=>{
-observer.observe(el);
-});
+}
+
+window.addEventListener("scroll",reveal);
 
 </script>
 
 </body>
 </html>
-
