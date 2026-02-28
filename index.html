@@ -3,11 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Hafizhah Najwa | Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+--navy:#0a192f;
+--navy-light:#112240;
+--white:#e6f1ff;
+--gray:#8892b0;
+--border:#233554;
+}
 
 *{
 margin:0;
@@ -17,46 +26,165 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#020617,#0f172a);
-color:white;
-overflow-x:hidden;
+background:var(--navy);
+color:var(--white);
 }
 
-/* animated background */
-body::before, body::after{
-content:"";
-position:fixed;
-width:400px;
-height:400px;
+/* container */
+.container{
+max-width:1100px;
+margin:auto;
+padding:0 20px;
+}
+
+/* header */
+header{
+text-align:center;
+padding:80px 20px 60px;
+border-bottom:1px solid var(--border);
+}
+
+.profile-img{
+width:160px;
+height:160px;
 border-radius:50%;
-filter:blur(150px);
-z-index:-1;
-animation:float 10s infinite alternate;
+object-fit:cover;
+border:3px solid var(--white);
+margin-bottom:20px;
+transition:0.3s;
 }
 
-body::before{
-background:#38bdf8;
-top:-100px;
-left:-100px;
+.profile-img:hover{
+transform:scale(1.05);
 }
 
-body::after{
-background:#ecbdd5;
-bottom:-100px;
-right:-100px;
-animation-delay:5s;
+h1{
+font-size:36px;
+margin-bottom:10px;
 }
 
-@keyframes float{
-from{transform:translateY(0px);} 
-to{transform:translateY(60px);} 
+.subtitle{
+color:var(--gray);
+margin-bottom:20px;
 }
 
-/* fade animation */
+.github-btn{
+display:inline-block;
+padding:12px 28px;
+border:1px solid var(--white);
+color:var(--white);
+text-decoration:none;
+border-radius:6px;
+transition:0.3s;
+}
+
+.github-btn:hover{
+background:var(--white);
+color:var(--navy);
+}
+
+/* section */
+section{
+padding:70px 0;
+}
+
+.section-title{
+font-size:28px;
+margin-bottom:40px;
+text-align:center;
+position:relative;
+}
+
+.section-title::after{
+content:"";
+width:60px;
+height:2px;
+background:var(--white);
+display:block;
+margin:10px auto;
+}
+
+/* about */
+.about{
+text-align:center;
+max-width:700px;
+margin:auto;
+color:var(--gray);
+line-height:1.8;
+}
+
+/* grid */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+/* card */
+.card{
+background:var(--navy-light);
+padding:25px;
+border-radius:8px;
+border:1px solid var(--border);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:var(--white);
+}
+
+/* project */
+.project-title{
+font-weight:600;
+margin-bottom:10px;
+}
+
+.project-desc{
+color:var(--gray);
+font-size:14px;
+margin-bottom:15px;
+}
+
+.project-link{
+color:var(--white);
+text-decoration:none;
+font-size:14px;
+border-bottom:1px solid transparent;
+}
+
+.project-link:hover{
+border-bottom:1px solid var(--white);
+}
+
+/* skills */
+.skill-title{
+font-weight:600;
+margin-bottom:8px;
+}
+
+/* journal */
+.journal-img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:6px;
+margin-bottom:15px;
+}
+
+/* footer */
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid var(--border);
+color:var(--gray);
+}
+
+/* animation */
 .fade{
 opacity:0;
-transform:translateY(40px);
-transition:all 1s ease;
+transform:translateY(20px);
+transition:1s;
 }
 
 .fade.show{
@@ -64,309 +192,187 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* header */
-header{
-text-align:center;
-padding:80px 20px;
+/* responsive */
+@media(max-width:600px){
+
+h1{
+font-size:28px;
 }
 
 .profile-img{
-width:150px;
-height:150px;
-border-radius:50%;
-border:4px solid #ec4899;
-margin-bottom:20px;
-transition:0.5s;
+width:130px;
+height:130px;
 }
 
-.profile-img:hover{
-transform:scale(1.1);
-box-shadow:0 0 40px #ec4899;
-}
-
-h1{
-font-size:clamp(28px,5vw,40px);
-}
-
-.subtitle{
-color:#cbd5e1;
-margin-top:10px;
-font-size:clamp(14px,3vw,18px);
-}
-
-.github-btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 30px;
-background:linear-gradient(45deg,#ec4899,#38bdf8);
-border-radius:30px;
-text-decoration:none;
-color:white;
-font-weight:600;
-transition:0.4s;
-}
-
-.github-btn:hover{
-transform:translateY(-4px);
-box-shadow:0 0 30px rgba(236,72,153,0.8);
-}
-
-section{
-max-width:1200px;
-margin:auto;
-padding:60px 20px;
-}
-
-.section-title{
-    font-size: clamp(24px,4vw,32px);
-    margin-bottom: 30px;
-    text-align: center;
-    border-left: none; /* remove side line */
-    padding-left: 0; /* remove left spacing */
-    display: block;
-    width: 100%;
-}
-
-.section-title::after{
-    content:"";
-    display:block;
-    width:140px; /* longer underline */
-    height:4px;
-    background: linear-gradient(45deg,#ec4899,#38bdf8);
-    margin:12px auto 0 auto;
-    border-radius:10px;
-    transition:0.4s;
-}
-
-.section-title:hover::after{
-    width:180px; /* animate longer on hover */
-}
-
-/* FIX CENTER ALIGNMENT */
-.section-title{
-text-align:center !important;
-margin-left:auto;
-margin-right:auto;
-width:100%;
-display:block;
-}
-
-.about{
-color:#cbd5e1;
-font-size:clamp(15px,3vw,18px);
-line-height:1.7;
-text-align: center;
-}
-
-/* project grid responsive */
-.project-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-}
-
-.project-card{
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:15px;
-transition:0.4s;
-}
-
-.project-card:hover{
-transform:translateY(-10px);
-background:rgba(236,72,153,0.15);
-box-shadow:0 0 25px rgba(236,72,153,0.6);
-}
-
-.project-title{
-font-weight:600;
-margin-bottom:8px;
-}
-
-.project-desc{
-color:#cbd5e1;
-font-size:14px;
-margin-bottom:8px;
-}
-
-.project-link{
-color:#ec4899;
-text-decoration:none;
-}
-
-/* skills */
-.skills-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-}
-
-.skill-card{
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:15px;
-text-align:center;
-transition:0.4s;
-}
-
-.skill-card:hover{
-transform:translateY(-10px) scale(1.05);
-background:rgba(236,72,153,0.15);
-box-shadow:0 0 25px rgba(236,72,153,0.6);
-}
-
-.skill-icon{
-font-size:35px;
-margin-bottom:10px;
-}
-
-/* journal */
-.journal-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
-}
-
-.journal-card{
-background:rgba(255,255,255,0.05);
-border-radius:15px;
-overflow:hidden;
-transition:0.4s;
-}
-
-.journal-card:hover{
-transform:scale(1.03);
-box-shadow:0 0 25px rgba(236,72,153,0.6);
-}
-
-.journal-card img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-.journal-content{
-padding:15px;
-}
-
-.journal-date{
-font-size:12px;
-color:#94a3b8;
-margin-bottom:6px;
-}
-
-footer{
-text-align:center;
-padding:30px;
-color:#94a3b8;
-font-size:14px;
-}
-
-/* mobile optimization */
-@media(max-width:600px){
-header{
-padding:60px 15px;
-}
-section{
-padding:40px 15px;
-}
 }
 
 </style>
 </head>
+
 <body>
 
 <header class="fade">
-<img src="https://cdn-icons-png.flaticon.com/512/6997/6997662.png" class="profile-img">
+
+<!-- GANTI FOTO DISINI -->
+<img src="images/profile.jpg" class="profile-img">
+
 <h1>Hafizhah Najwa</h1>
-<p class="subtitle">Information Systems Student • Web Developer • Data Analyst</p>
-<a href="https://github.com/hafizhahnajwa20" class="github-btn" target="_blank">Visit My GitHub</a>
+
+<p class="subtitle">
+Information Systems Student • Web Developer • Data Analyst
+</p>
+
+<a href="https://github.com/hafizhahnajwa20" class="github-btn" target="_blank">
+Visit GitHub
+</a>
+
 </header>
 
+
 <section class="fade">
+
+<div class="container">
+
 <h2 class="section-title">About Me</h2>
+
 <p class="about">
-Hello, I'm Hafizhah Najwa. I graduated from SMK Negeri 3 Parepare majoring in Computer and Network Engineering (TKJ), and currently studying Information Systems at Institut Teknologi Bacharuddin Jusuf Habibie Parepare. I have experience building web applications, chatbot systems, recommendation systems, and data analytics projects. I am also skilled in Microsoft Office and passionate about technology and continuous learning.
+I am an Information Systems student at Institut Teknologi Bacharuddin Jusuf Habibie. I specialize in web development, system development, and data analysis. I have experience building library systems, recommendation systems, and chatbot applications. I am passionate about creating useful and efficient technology solutions.
 </p>
+
+</div>
+
 </section>
 
+
 <section class="fade">
+
+<div class="container">
+
 <h2 class="section-title">Projects</h2>
-<div class="project-grid">
 
-<div class="project-card">
+<div class="grid">
+
+<div class="card">
 <div class="project-title">Public Library Management System</div>
-<div class="project-desc">Web-based library system.</div>
-<a href="https://github.com/hafizhahnajwa20/public-library-management-system" class="project-link">View Project →</a>
+<div class="project-desc">
+Web-based system for managing library operations.
+</div>
+<a href="https://github.com/hafizhahnajwa20/public-library-management-system" class="project-link">
+View Project
+</a>
 </div>
 
-<div class="project-card">
+<div class="card">
 <div class="project-title">Recommendation System</div>
-<div class="project-desc">Machine learning system.</div>
-<a href="https://github.com/hafizhahnajwa20/product-recommendation-system" class="project-link">View Project →</a>
+<div class="project-desc">
+Machine learning system for product recommendations.
+</div>
+<a href="https://github.com/hafizhahnajwa20/product-recommendation-system" class="project-link">
+View Project
+</a>
 </div>
 
-<div class="project-card">
+<div class="card">
 <div class="project-title">Kelurahan Chatbot</div>
-<div class="project-desc">Chatbot system.</div>
-<a href="https://github.com/hafizhahnajwa20/kelurahan-service-chatbot" class="project-link">View Project →</a>
+<div class="project-desc">
+Chatbot for public service automation.
+</div>
+<a href="https://github.com/hafizhahnajwa20/kelurahan-service-chatbot" class="project-link">
+View Project
+</a>
 </div>
 
 </div>
+
+</div>
+
 </section>
 
+
 <section class="fade">
+
+<div class="container">
+
 <h2 class="section-title">Skills</h2>
-<div class="skills-grid">
 
-<div class="skill-card">
-<div class="skill-icon">💻</div>
-<h3>Web Development</h3>
-<p>HTML, CSS, JavaScript, PHP</p>
+<div class="grid">
+
+<div class="card">
+<div class="skill-title">Web Development</div>
+<p class="project-desc">
+HTML, CSS, JavaScript, PHP
+</p>
 </div>
 
-<div class="skill-card">
-<div class="skill-icon">📊</div>
-<h3>Microsoft Office</h3>
-<p>Word, Excel, PowerPoint</p>
+<div class="card">
+<div class="skill-title">Data Analysis</div>
+<p class="project-desc">
+Python, Pandas, Machine Learning
+</p>
 </div>
 
-<div class="skill-card">
-<div class="skill-icon">🐍</div>
-<h3>Python</h3>
-<p>Data Analysis</p>
+<div class="card">
+<div class="skill-title">Tools</div>
+<p class="project-desc">
+GitHub, MySQL, Microsoft Office
+</p>
 </div>
 
 </div>
+
+</div>
+
 </section>
+
 
 <section class="fade">
+
+<div class="container">
+
 <h2 class="section-title">Journal</h2>
-<div class="journal-grid">
 
-<div class="journal-card">
-<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
-<div class="journal-content">
-<div class="journal-date">2026</div>
-<h3>My Journey</h3>
-<p>My journey in technology continues to grow.</p>
-</div>
+<div class="grid">
+
+<div class="card">
+
+<img src="images/journal.jpg" class="journal-img">
+
+<div class="project-title">My Technology Journey</div>
+
+<p class="project-desc">
+Documenting my growth and projects in technology.
+</p>
+
 </div>
 
 </div>
+
+</div>
+
 </section>
+
 
 <footer>
-© 2026 Hafizhah Najwa • Portfolio
+
+© 2026 Hafizhah Najwa
+
 </footer>
 
+
 <script>
+
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
-if(entry.isIntersecting){entry.target.classList.add("show");}
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
 });
 });
-document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
+
+document.querySelectorAll(".fade").forEach(el=>{
+observer.observe(el);
+});
+
 </script>
 
 </body>
