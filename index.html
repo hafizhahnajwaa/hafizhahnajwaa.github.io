@@ -29,24 +29,23 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 /* =====================================================
    RESET
 ===================================================== */
+   *{
+   margin:0;
+   padding:0;
+   box-sizing:border-box;
+   font-family:Poppins,sans-serif;
+   }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
-}
+   html{
+   scroll-behavior:smooth;
+   scroll-snap-type:y proximity;
+   }
 
-html{
-scroll-behavior:smooth;
-scroll-snap-type:y proximity;
-}
-
-body{
-background:var(--primary);
-color:var(--white);
-overflow-x:hidden;
-}
+   body{
+   background:var(--primary);
+   color:var(--white);
+   overflow-x:hidden;
+   }
 
 
 /* =====================================================
@@ -89,8 +88,15 @@ font-size:22px;
 color:#fff;
 font-weight:700;
 letter-spacing:1px;
+text-decoration:none;
+font-size:22px;
+cursor:pointer;
+transition:.3s;
 }
 
+.logo:hover{
+color:var(--accent);
+}
 .nav-links{
 display:flex;
 align-items:center;
@@ -196,39 +202,76 @@ background:var(--accent);
 color:black;
 }
 
-
 /* =====================================================
-   WELCOME
+WELCOME MODERN LEFT LAYOUT
 ===================================================== */
 
 #welcome{
+min-height:100vh;
+padding:0 8%;
+display:flex;
+align-items:center;
+justify-content:flex-start;
+background:
+linear-gradient(rgba(12, 28, 51, 0.374),rgba(10,25,47,.95)),
+url("https://images.unsplash.com/photo-1599270613570-a620f2e59f75?q=80&w=1920&auto=format&fit=crop");
+background-size:cover;
+background-position:center;
+position:relative;
+}
 
-      background:
-      linear-gradient(rgba(10,25,47,.7),rgba(10,25,47,.9)),
-      url("https://images.unsplash.com/photo-1599270613570-a620f2e59f75?q=80&w=1920&auto=format&fit=crop");
+/* container */
+.welcome-content{
+max-width:650px;
+z-index:2;
+}
 
-      background-size:cover;
-      background-position:center;
+/* small intro */
+.welcome-text{
+color:#ffcc00;
+font-size:16px;
+margin-bottom:15px;
+letter-spacing:1px;
+}
 
-      flex-direction:column;
-      text-align:center;
-      }
+/* name */
+#welcome h1{
+font-size:clamp(40px,6vw,64px);
+font-weight:700;
+margin-bottom:15px;
+line-height:1.2;
+}
 
-      #welcome h1{
-      font-size:clamp(32px,8vw,60px);
-      }
+/* subtitle */
+.welcome-sub{
+color:#94a3b8;
+font-size:18px;
+margin-bottom:30px;
+line-height:1.6;
+max-width:500px;
+}
 
-      .welcome-text{
-      color:var(--accent);
-      font-size:18px;
-      margin-bottom:10px;
-      }
+/* button modern */
+#welcome .btn{
+padding:12px 28px;
+font-size:15px;
+border-radius:10px;
+box-shadow:0 0 15px rgba(255,204,0,0.3);
+}
 
-      .welcome-sub{
-      color:#ddd;
-      margin-bottom:30px;
-      }
-
+/* glow accent */
+#welcome::after{
+content:"";
+position:absolute;
+right:10%;
+top:50%;
+transform:translateY(-50%);
+width:300px;
+height:300px;
+background:radial-gradient(circle,#ffcc00 0%,transparent 70%);
+opacity:.15;
+filter:blur(80px);
+}
 
 /* =====================================================
    ABOUT
@@ -340,7 +383,7 @@ color:black;
       min-height:100vh;
       padding:80px 20px;
       background:
-      linear-gradient(135deg,#020617,#0f172a);
+      linear-gradient(135deg,#02061782,#0f172a);
       display:flex;
       flex-direction:column;
       justify-content:center;
@@ -920,7 +963,31 @@ color:#64748b;
    flex-direction:column;
    text-align:center;
    }
+/* ===== EXPERIENCE MOBILE FIX ===== */
 
+.exp-wrapper{
+overflow:visible; /* hilangkan scroll samping */
+}
+
+.exp-track{
+display:flex;
+flex-direction:column; /* ubah jadi vertikal */
+gap:15px;
+}
+
+.exp-track::before{
+display:none; /* hilangkan garis horizontal */
+}
+
+.exp-card{
+min-width:100%;
+max-width:100%;
+margin:0 auto;
+}
+
+.exp-dot{
+display:none; /* hilangkan titik timeline */
+}
    }
 
 @media(max-width:480px){
@@ -934,13 +1001,61 @@ color:#64748b;
    }
 
 }
+/* SUNFLOWER CONTAINER */
+.sunflower-container{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:0;
+overflow:hidden;
+}
+
+/* SUNFLOWERS */
+/* SUNFLOWERS LEBIH BESAR & TERLIHAT */
+.sunflower-container span{
+position:absolute;
+font-size:42px; /* sebelumnya 24px */
+opacity:.35; /* sebelumnya .15 */
+animation:floatSunflower linear infinite;
+filter:
+drop-shadow(0 0 6px rgba(255,204,0,0.6))
+drop-shadow(0 0 12px rgba(255,204,0,0.4));
+}
+
+/* variasi ukuran agar natural */
+.sunflower-container span:nth-child(1){left:10%;font-size:36px;animation-duration:18s;}
+.sunflower-container span:nth-child(2){left:25%;font-size:48px;animation-duration:22s;}
+.sunflower-container span:nth-child(3){left:50%;font-size:40px;animation-duration:20s;}
+.sunflower-container span:nth-child(4){left:70%;font-size:52px;animation-duration:24s;}
+.sunflower-container span:nth-child(5){left:85%;font-size:38px;animation-duration:19s;}
+.sunflower-container span:nth-child(6){left:40%;font-size:46px;animation-duration:26s;}
+
+@keyframes floatSunflower{
+0%{
+transform:translateY(100vh) rotate(0deg);
+}
+100%{
+transform:translateY(-10vh) rotate(360deg);
+}
+}
 </style>
 </head>
 
 <body>
+   <div class="sunflower-container">
+<span>🌻</span>
+<span>🌻</span>
+<span>🌻</span>
+<span>🌻</span>
+<span>🌻</span>
+<span>🌻</span>
+</div>
 <nav>
 
-<h2 class="logo">HN</h2>
+<a href="#welcome" class="logo">HN</a>
 <div class="menu-btn" onclick="toggleMenu()">
 <i class="fa fa-bars"></i>
 </div>
@@ -956,15 +1071,23 @@ color:#64748b;
 </nav>
 <section id="welcome">
 
-<p class="welcome-text">Hi, welcome to my digital portfolio</p>
+<div class="welcome-content">
+
+<p class="welcome-text">
+Hi, my name is
+</p>
 
 <h1 id="typing"></h1>
 
 <p class="welcome-sub">
-I design and develop modern information systems and intelligent solutions
+I design and develop modern web applications, information systems, and intelligent digital solutions.
 </p>
 
-<a href="#about" class="btn">View My Profile</a>
+<a href="#about" class="btn">
+View My Profile
+</a>
+
+</div>
 
 </section>
 <section id="about" class="about-section reveal">
