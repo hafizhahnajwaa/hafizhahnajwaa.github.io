@@ -385,396 +385,1177 @@ filter:blur(80px);
 /* =====================================================
    EDUCATION
 ===================================================== */
-      .education-section{
-      min-height:100vh;
-      padding:80px 20px;
-      background:
-      linear-gradient(135deg,#02061782,#0f172a);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
 
-      }
+.education-section{
+   padding:90px 20px;
+   background:linear-gradient(135deg,#020617,#0f172a);
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   }
 
-      /* Title center */
-      .education-section .title{
-      font-size:28px;
-      margin-bottom:20px;
-      text-align:center;
-      }
+.education-card{
+   max-width:650px;
+   width:100%;
+   margin:auto;
+   background:rgba(255,255,255,.05);
+   backdrop-filter:blur(16px);
+   border:1px solid rgba(255,255,255,.08);
+   border-radius:22px;
+   padding:35px;
+   transition:.4s;
+   }
 
+.education-card:hover{
+   transform:translateY(-8px);
+   box-shadow:0 20px 50px rgba(37,99,235,.25);
+   }
 
-      /* =====================================================
-         TIMELINE CONTAINER (CENTER FIX)
-      ===================================================== */
+.edu-top{
+   display:flex;
+   flex-direction:column;
+   align-items:center;
+   margin-bottom:25px;
+   }
 
-      .edu-timeline{
-      position:relative;
-      width:100%;
-      max-width:600px;
-      margin:auto;
-      padding-left:60px; /* beri ruang icon */
-      }
+.edu-year{
+   display:flex;
+   align-items:center;
+   gap:15px;
+   font-weight:600;
+   font-size:16px;
+   color:#60a5fa;
+   width:100%;
+   }
 
+.edu-line{
+   flex:1;
+   height:3px;
+   background:linear-gradient(90deg,#3b82f6,#60a5fa);
+   border-radius:20px;
+   }
 
-      /* GARIS TIMELINE */
-      .edu-timeline::before{
-      content:"";
-      position:absolute;
-      left:20px;
-      top:0;
-      bottom:0;
-      width:3px;
-      background:linear-gradient(to bottom,#3b82f6,#60a5fa);
-      border-radius:10px;
-      }
+.edu-icon{
+   margin-top:18px;
+   width:70px;
+   height:70px;
+   background:#2563eb;
+   border-radius:50%;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   font-size:30px;
+   color:#fff;
+   box-shadow:0 0 30px rgba(37,99,235,.4);
+   }
 
+.edu-content{
+   text-align:center;
+   }
 
-      /* =====================================================
-         CARD
-      ===================================================== */
+.edu-content h3{
+   font-size:28px;
+   margin-bottom:10px;
+   }
 
-      .edu-card{
-      position:relative;
-      padding:15px 15px;
-      margin-bottom:20px;
-      background:rgba(255,255,255,0.05);
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,0.08);
-      transition:.3s;
-      backdrop-filter:blur(4px);
-      }
+.edu-content h4{
+   font-size:20px;
+   color:#60a5fa;
+   margin-bottom:15px;
+   }
 
-      /* hover effect */
-      .edu-card:hover{
-      transform:translateX(5px);
-      box-shadow:0 0 20px rgba(59,130,246,0.25);
-      border:1px solid rgba(59,130,246,0.3);
-      }
+.edu-content p{
+   color:#cbd5e1;
+   margin-bottom:8px;
+   font-size:16px;
+   }
 
-      /* =====================================================
-         ICON FIX (TIDAK HILANG)
-      ===================================================== */
-      .edu-icon{
-      position:absolute;
-      left:-48px;
-      top:18px;
-      width:32px;
-      height:32px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:linear-gradient(135deg,#3b82f6,#60a5fa);
-      border-radius:50%;
-      color:white;
-      font-size:14px;
-      box-shadow:
-      0 0 10px rgba(59,130,246,0.6);
-      z-index:2;
-      }
+.edu-badges{
+   display:flex;
+   justify-content:center;
+   flex-wrap:wrap;
+   gap:12px;
+   margin-top:25px;
+   }
 
-      /* =====================================================
-         TEXT
-      ===================================================== */
-      .edu-content h3{
-      font-size:16px;
-      margin-bottom:3px;
-      color:white;
-      }
-      .edu-content p{
-      font-size:13px;
-      color:#94a3b8;
-      margin-bottom:3px;
-      }
-
-      .edu-year{
-      font-size:12px;
-      color:#60a5fa;
-      font-weight:500;
-      }
+.edu-badges span{
+   padding:10px 18px;
+   border-radius:30px;
+   background:rgba(59,130,246,.15);
+   border:1px solid rgba(96,165,250,.3);
+   font-size:14px;
+   color:#fff;
+   }
 
 /* =====================================================
-   EXPERIENCE
+   EXPERIENCE SECTION
 ===================================================== */
 
-      .experience-section{
-      height:100vh;
-      padding:80px 20px;
-      background:rgba(255,255,255,0.05);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      overflow:hidden;
-      }
+.experience-section{
+    padding:90px 20px;
+    background:linear-gradient(135deg,#020617,#0f172a);
+}
 
-      .experience-section .container{
-      width:100%;
-      max-width:1000px;
-      margin:auto;
-      text-align:center;
-      }
+.experience-section .container{
+    max-width:1050px;
+    margin:auto;
+}
 
+/* ==========================
+   TITLE
+========================== */
 
-      /* =====================================================
-      WRAPPER
-      ===================================================== */
+.experience-section .title{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #FFD54A;   /* Warna kuning */
+    margin-bottom: 60px;
+    letter-spacing: 1px;
+}
 
-      .exp-wrapper{
-      width:100%;
-      display:flex;
-      justify-content:center;
-      }
-
-
-      /* =====================================================
-      TRACK
-      ===================================================== */
-
-      .exp-track{
-      display:flex;
-      justify-content:center;
-      gap:25px;
-      position:relative;
-      padding-top:50px;
-      width:100%;
-      }
-
-
-      /* FULL WIDTH LINE */
-      .exp-track::before{
-      content:"";
-      position:absolute;
-      top:22px;
-      left:0;
-      width:100%;
-      height:3px;
-      background:linear-gradient(90deg,#3b82f6,#60a5fa);
-      border-radius:10px;
-      }
-
-
-      /* =====================================================
-      CARD (FIX SAME SIZE)
-      ===================================================== */
-
-      /* DEFAULT BIRU */
-      .exp-card{
-      width:230px;
-      height:160px;
-      padding:18px;
-      background:rgba(255,255,255,0.05);
-      border-radius:16px;
-      border:2px solid #3b82f6;
-      box-shadow:0 0 15px rgba(59,130,246,0.8);
-      transition:.3s;
-      cursor:pointer;
-      }
-
-      /* SAAT DIKLIK = KUNING */
-      .exp-card.active{
-      border:2px solid #ffcc00 !important;
-      box-shadow:0 0 20px #ffcc00,0 0 40px rgba(255,204,0,0.7) !important;
-      }
-
-
-      /* =====================================================
-      DOT FIX PERFECT ALIGN
-      ===================================================== */
-
-      .exp-dot{
-      position:absolute;
-      top:-35px;
-      left:20px;
-
-      width:14px;
-      height:14px;
-
-      background:linear-gradient(135deg,#3b82f6,#60a5fa);
-
-      border-radius:50%;
-
-      box-shadow:0 0 12px rgba(59,130,246,0.9);
-      }
-
-
-      /* =====================================================
-      TEXT
-      ===================================================== */
-
-      .exp-year{
-      font-size:14px;
-      color:#60a5fa;
-      margin-bottom:4px;
-      font-weight:600;
-      }
-
-      .exp-role{
-      font-size:15px;
-      color:#fff;
-      font-weight:600;
-      margin-bottom:4px;
-      }
-
-      .exp-company{
-      font-size:13px;
-      color:#94a3b8;
-      margin-bottom:6px;
-      }
-
-      .exp-desc{
-      font-size:12px;
-      color:#cbd5e1;
-      line-height:1.4;
-      }
-      /* CARD DEFAULT (BIRU) */
-      .exp-card{
-      width:230px;
-      height:160px;
-      padding:18px;
-      background:rgba(255,255,255,0.05);
-      border-radius:16px;
-      border:1px solid rgba(59,130,246,0.4);
-      backdrop-filter:blur(6px);
-      transition:.3s;
-      position:relative;
-      cursor:pointer;
-
-      /* blue glow */
-      box-shadow:0 0 10px rgba(59,130,246,0.5);
-      }
-
-
-
-      /* SAAT DIKLIK → KUNING */
-      .exp-card.active{
-
-      border:1px solid rgba(255,204,0,0.8);
-
-      box-shadow:
-      0 0 15px rgba(255,204,0,0.8),
-      0 0 40px rgba(255,204,0,0.5),
-      0 0 60px rgba(255,204,0,0.3);
-
-      transform:translateY(-6px);
-      }
+/* Hilangkan garis bawah */
+.experience-section .title::after{
+    display: none;
+}
 
 /* =====================================================
-   PROJECTS
+   TRACK
 ===================================================== */
 
-      #projects{
-      min-height:auto; /* jangan paksa full layar */
-      padding:80px 20px;
-      display:block; /* hilangkan flex center */
-      }
+.exp-track{
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+}
 
+/* =====================================================
+   CARD
+===================================================== */
 
-      /* =====================================================
-      GRID FIX
-      ===================================================== */
+.exp-card{
 
-      .projects-grid{
+    display:flex;
+    align-items:center;
+    gap:20px;
 
-      display:grid;
+    background:rgba(255,255,255,.05);
 
-      grid-template-columns:
-      repeat(auto-fit,minmax(260px,1fr));
+    backdrop-filter:blur(18px);
 
-      gap:24px;
+    border:1px solid rgba(255,255,255,.08);
 
-      max-width:900px; /* batasi lebar agar tidak terlalu penuh */
+    border-radius:22px;
 
-      margin:auto;
+    padding:22px;
 
-      }
+    transition:.35s ease;
 
+    overflow:hidden;
 
-      /* =====================================================
-      CARD FIX SIZE
-      ===================================================== */
+    position:relative;
 
-      .project-card{
-      position:relative;
-      padding:10px;
-      background:rgba(255,255,255,0.03);
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,0.08);
-      transition:.35s;
-      overflow:hidden;
-      height:auto; /* pastikan tidak stretch */
+}
 
-      }
+.exp-card::before{
 
+    content:"";
 
-      /* garis atas */
-      .project-card::before{
-      content:"";
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:2px;
-      background:
-      linear-gradient(90deg,var(--accent),transparent);
-      }
+    position:absolute;
 
-      /* hover */
-      .project-card:hover{
-      transform:
-      translateY(-6px);
-      box-shadow:
-      0 8px 20px rgba(0,0,0,0.3),
-      0 0 15px rgba(0,212,255,0.15);
-      }
+    width:220px;
+    height:220px;
 
-      /* icon */
-      .project-icon{
-      font-size:26px;
-      margin-bottom:10px;
-      }
+    background:#2563eb;
 
-      /* title */
-      .project-title{
-      font-size:16px;
-      }
+    right:-120px;
+    top:-120px;
 
-      /* desc */
-      .project-desc{
-      font-size:13px;
-      color:var(--gray);
-      margin-bottom:12px;
-      line-height:1.5;
-      }
+    border-radius:50%;
 
-      /* tags */
-      .project-tags span{
-      font-size:11px;
-      padding:4px 10px;
-      background:rgba(255,255,255,0.06);
-      border-radius:20px;
-      margin-right:6px;
+    filter:blur(100px);
 
-      }
+    opacity:.15;
 
-      /* CENTER BUTTON */
-      .project-btn{
-      display:block;
-      width:max-content;
-      margin:10px auto 0 auto;
-      padding:6px 14px;
-      border:1px solid var(--accent);
-      border-radius:8px;
-      color:var(--accent);
-      text-decoration:none;
-      font-size:12px;
-      text-align:center;
-      }
+    transition:.35s;
 
-      .project-btn:hover{
-      background:var(--accent);
-      color:black;
-      }
+}
+
+.exp-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#60a5fa;
+
+    box-shadow:0 20px 40px rgba(59,130,246,.20);
+
+}
+
+.exp-card:hover::before{
+
+    opacity:.28;
+
+}
+
+/* Highlight MBKM */
+
+.exp-card.active{
+
+    border:1px solid rgba(255,204,0,.45);
+
+    box-shadow:0 10px 35px rgba(255,204,0,.15);
+
+}
+
+.exp-card.active::before{
+
+    background:#FFD54A;
+
+}
+
+/* =====================================================
+   PHOTO
+===================================================== */
+
+.exp-photo{
+
+    width:250px;
+
+    height:180px;
+
+    flex-shrink:0;
+
+}
+
+.exp-photo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:18px;
+
+    border:2px solid rgba(255,255,255,.08);
+
+    transition:.4s;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.25);
+
+}
+
+.exp-photo img:hover{
+
+    transform:scale(1.04);
+
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.exp-info{
+
+    flex:1;
+
+}
+
+.exp-year{
+
+    display:inline-block;
+
+    background:rgba(59,130,246,.12);
+
+    color:#60a5fa;
+
+    padding:7px 15px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+.exp-role{
+
+    font-size:24px;
+
+    color:#fff;
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+}
+
+.exp-company{
+
+    color:#94a3b8;
+
+    font-size:15px;
+
+    margin-bottom:15px;
+
+}
+
+.exp-desc{
+
+    color:#d1d5db;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    margin-bottom:18px;
+
+}
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.exp-skills{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.exp-skills span{
+
+    background:rgba(59,130,246,.10);
+
+    color:#93c5fd;
+
+    border:1px solid rgba(59,130,246,.25);
+
+    border-radius:30px;
+
+    padding:8px 15px;
+
+    font-size:12px;
+
+    transition:.3s;
+
+}
+
+.exp-skills span:hover{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    transform:translateY(-2px);
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width:900px){
+
+    .exp-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .exp-photo{
+
+        width:100%;
+
+        max-width:320px;
+
+        height:220px;
+
+    }
+
+    .exp-skills{
+
+        justify-content:center;
+
+    }
+
+}
+
+@media (max-width:600px){
+
+    .experience-section{
+
+        padding:70px 15px;
+
+    }
+
+    .experience-section .title{
+
+        font-size:1.9rem;
+
+    }
+
+    .exp-role{
+
+        font-size:20px;
+
+    }
+
+    .exp-company{
+
+        font-size:14px;
+
+    }
+
+    .exp-desc{
+
+        font-size:13px;
+
+    }
+
+}
+/* =====================================================
+   RESEARCH & PUBLICATIONS
+===================================================== */
+
+.research-section{
+    padding:100px 20px;
+    background:linear-gradient(135deg,#07111f,#0f172a);
+}
+
+.research-section .container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.research-section .title{
+    text-align:center;
+    font-size:2.5rem;
+    font-weight:700;
+    color:#FFD54A;
+    margin-bottom:60px;
+    text-shadow:0 0 12px rgba(255,213,74,.35);
+}
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.research-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+
+    gap:35px;
+
+}
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.research-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(16px);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    transition:.35s ease;
+
+    position:relative;
+
+}
+
+.research-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#3b82f6;
+
+    box-shadow:
+    0 20px 40px rgba(37,99,235,.18);
+
+}
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.research-image{
+
+    width:100%;
+
+    height:230px;
+
+    overflow:hidden;
+
+}
+
+.research-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    transition:.45s;
+
+}
+
+.research-card:hover .research-image img{
+
+    transform:scale(1.08);
+
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.research-content{
+
+    padding:28px;
+
+}
+
+.research-type{
+
+    display:inline-block;
+
+    background:rgba(59,130,246,.12);
+
+    color:#60a5fa;
+
+    padding:7px 16px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+.research-content h3{
+
+    color:#ffffff;
+
+    font-size:22px;
+
+    line-height:1.4;
+
+    margin-bottom:16px;
+
+    font-weight:700;
+
+}
+
+.research-content p{
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+    font-size:14px;
+
+    margin-bottom:22px;
+
+}
+
+/* =====================================================
+   TAGS
+===================================================== */
+
+.research-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:24px;
+
+}
+
+.research-tags span{
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#FFD54A;
+
+    font-size:12px;
+
+    transition:.3s;
+
+}
+
+.research-tags span:hover{
+
+    background:#FFD54A;
+
+    color:#111827;
+
+}
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.research-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#60a5fa;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.research-btn:hover{
+
+    color:#FFD54A;
+
+}
+
+.research-btn i{
+
+    transition:.3s;
+
+}
+
+.research-btn:hover i{
+
+    transform:translateX(6px);
+
+}
+
+/* =====================================================
+   FEATURED CARD
+===================================================== */
+
+.featured{
+
+    border:1px solid rgba(255,213,74,.4);
+
+    box-shadow:
+    0 0 30px rgba(255,213,74,.08);
+
+}
+
+.featured::before{
+
+    content:"Featured";
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    background:#FFD54A;
+
+    color:#111827;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    z-index:10;
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:900px){
+
+    .research-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .research-section{
+
+        padding:70px 15px;
+
+    }
+
+    .research-section .title{
+
+        font-size:2rem;
+
+    }
+
+    .research-content{
+
+        padding:22px;
+
+    }
+
+    .research-content h3{
+
+        font-size:19px;
+
+    }
+
+}
+/* =====================================================
+   PROJECTS SECTION
+===================================================== */
+
+.projects-section{
+    padding:100px 20px;
+    background:linear-gradient(135deg,#07111f,#0f172a);
+}
+
+.projects-section .container{
+    max-width:1300px;
+    margin:auto;
+}
+
+.projects-section .title{
+
+    text-align:center;
+
+    font-size:2.5rem;
+
+    font-weight:700;
+
+    color:#FFD54A;
+
+    margin-bottom:70px;
+
+    text-shadow:0 0 15px rgba(255,213,74,.3);
+
+}
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.projects-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+
+    gap:35px;
+
+}
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.project-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+    position:relative;
+
+}
+
+.project-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#3b82f6;
+
+    box-shadow:
+    0 20px 45px rgba(37,99,235,.22);
+
+}
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.project-image{
+
+    width:100%;
+
+    height:230px;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.project-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.45s;
+
+}
+
+.project-card:hover .project-image img{
+
+    transform:scale(1.06);
+
+}
+
+/* Overlay */
+
+.project-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(to top,
+    rgba(2,6,23,.45),
+    transparent);
+
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.project-content{
+
+    padding:28px;
+
+}
+
+/* =====================================================
+   BADGE
+===================================================== */
+
+.project-badge{
+
+    display:inline-block;
+
+    background:rgba(59,130,246,.12);
+
+    color:#60a5fa;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.project-title{
+
+    color:#fff;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.project-subtitle{
+
+    color:#FFD54A;
+
+    font-size:15px;
+
+    margin-bottom:18px;
+
+}
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.project-desc{
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+    font-size:14px;
+
+    margin-bottom:25px;
+
+}
+
+/* =====================================================
+   TAGS
+===================================================== */
+
+.project-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:28px;
+
+}
+
+.project-tags span{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#FFD54A;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    transition:.3s;
+
+}
+
+.project-tags span:hover{
+
+    background:#FFD54A;
+
+    color:#111827;
+
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.project-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.project-btn{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    text-decoration:none;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    color:#60a5fa;
+
+    border:1px solid #3b82f6;
+
+    transition:.35s;
+
+}
+
+.project-btn:hover{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+.project-btn.github{
+
+    border-color:#FFD54A;
+
+    color:#FFD54A;
+
+}
+
+.project-btn.github:hover{
+
+    background:#FFD54A;
+
+    color:#111827;
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:992px){
+
+.projects-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.projects-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.project-image{
+
+height:200px;
+
+}
+
+.project-content{
+
+padding:22px;
+
+}
+
+.project-title{
+
+font-size:22px;
+
+}
+
+.project-buttons{
+
+flex-direction:column;
+
+}
+
+.project-btn{
+
+width:100%;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.projects-section{
+
+padding:70px 15px;
+
+}
+
+.projects-section .title{
+
+font-size:2rem;
+
+margin-bottom:45px;
+
+}
+
+.project-image{
+
+height:180px;
+
+}
+
+.project-title{
+
+font-size:20px;
+
+}
+
+.project-subtitle{
+
+font-size:14px;
+
+}
+
+.project-desc{
+
+font-size:13px;
+
+}
+
+.project-tags span{
+
+font-size:11px;
+
+padding:7px 13px;
+
+}
+
+}
 /* =====================================================
    SKILLS
 ===/* SKILLS MODERN GLOW */
@@ -1070,6 +1851,7 @@ transform:translateY(-10vh) rotate(360deg);
 <a href="#about">About</a>
 <a href="#education">Education</a>
 <a href="#experience">Experience</a>
+<a href="#research">Research</a>
 <a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
 </div>
@@ -1174,120 +1956,291 @@ I enjoy learning new technologies, exploring design ideas, and continuously impr
 
 <section id="education" class="education-section reveal">
 
-<div class="container">
+    <div class="container">
 
-<h2 class="title">Education Journey</h2>
+        <h2 class="title">Education Journey</h2>
 
-<div class="edu-timeline">
+        <div class="education-card">
 
-<div class="edu-card">
-<div class="edu-icon">
-<i class="fa fa-school"></i>
-</div>
+            <div class="edu-top">
 
-<div class="edu-content">
-<h3>SDN 30 Parepare</h3>
-<p>Primary School</p>
-<span class="edu-year">2011 — 2014</span>
-</div>
-</div>
+                <div class="edu-year">
+                    <span>2022</span>
+                    <div class="edu-line"></div>
+                    <span>2026</span>
+                </div>
 
+                <div class="edu-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
 
-<div class="edu-card">
-<div class="edu-icon">
-<i class="fa fa-school"></i>
-</div>
+            </div>
 
-<div class="edu-content">
-<h3>MTsN Parepare</h3>
-<p>Islamic Junior High School</p>
-<span class="edu-year">2014 — 2017</span>
-</div>
-</div>
+            <div class="edu-content">
 
+                <h3>Bachelor of Computer Science (S.Kom.)</h3>
 
-<div class="edu-card">
-<div class="edu-icon">
-<i class="fa fa-laptop-code"></i>
-</div>
+                <h4>Institut Teknologi Bacharuddin Jusuf Habibie</h4>
 
-<div class="edu-content">
-<h3>SMK Negeri 3 Parepare</h3>
-<p>Computer and Network Engineering</p>
-<span class="edu-year">2017 — 2020</span>
-</div>
-</div>
+                <p>Faculty of Science</p>
 
+                <p>Information Systems Study Program</p>
 
-<div class="edu-card active">
-<div class="edu-icon">
-<i class="fa fa-graduation-cap"></i>
-</div>
+                <div class="edu-badges">
 
-<div class="edu-content">
-<h3>Institut Teknologi BJ Habibie</h3>
-<p>Bachelor of Information Systems</p>
-<span class="edu-year">2022 — Present</span>
-</div>
-</div>
+                    <span>🎓 Graduated</span>
 
-</div>
+                    <span>🏅 Cum Laude</span>
 
-</div>
+                    <span>⭐ GPA 3.86 / 4.00</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 </section>
 <section id="experience" class="experience-section reveal">
 
+    <div class="container">
+
+        <h2 class="title">Work Experience</h2>
+
+        <div class="exp-track">
+
+            <!-- MBKM -->
+            <div class="exp-card active">
+
+                <div class="exp-photo">
+                  <img src="https://drive.google.com/thumbnail?id=1l5vvN2Qn3sZWq7ARWNGlh_E7LiVesDoe&sz=w1000"
+                        alt="MBKM Documentation">
+               </div>
+
+                <div class="exp-info">
+
+                    <span class="exp-year">February 2025 – July 2025</span>
+
+                    <h3 class="exp-role">
+                        Data Analyst & Frontend Developer
+                    </h3>
+
+                    <h4 class="exp-company">
+                        MBKM Program • DPPKB Kota Parepare
+                    </h4>
+
+                    <p class="exp-desc">
+                        Contributed to the development of the SiPasti information system by analyzing user requirements, designing responsive frontend interfaces, and supporting database implementation to improve public services.
+                    </p>
+
+                    <div class="exp-skills">
+                        <span>Laravel</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                        <span>Frontend</span>
+                        <span>Data Analysis</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- BULOG -->
+
+            <div class="exp-card">
+
+                <div class="exp-photo">
+                  <img src="https://drive.google.com/thumbnail?id=18X4efP0OcOGgQB7wVMnepvZwSrrKErHm&sz=w1000"
+                        alt="BULOG Documentation">
+               </div>
+
+                <div class="exp-info">
+
+                    <span class="exp-year">May 2026 – June 2026</span>
+
+                    <h3 class="exp-role">
+                        Food Assistance Verification
+                    </h3>
+
+                    <h4 class="exp-company">
+                        Perum BULOG Branch Parepare
+                    </h4>
+
+                    <p class="exp-desc">
+                        Verified and validated beneficiary data, coordinated with field officers, and prepared verification reports to support the implementation of the National Food Assistance Program.
+                    </p>
+
+                    <div class="exp-skills">
+                        <span>Verification</span>
+                        <span>Validation</span>
+                        <span>Reporting</span>
+                        <span>Teamwork</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section id="research" class="research-section reveal">
+
 <div class="container">
 
-<h2 class="title">Experience</h2>
+<h2 class="title">Research & Publications</h2>
 
-<div class="exp-wrapper">
+<div class="research-grid">
 
-<div class="exp-track">
+<!-- ================================================= -->
+<!-- RESEARCH 1 -->
+<!-- ================================================= -->
 
-<!-- 2019 -->
-<div class="exp-card">
-<div class="exp-dot"></div>
-<div class="exp-year">2019</div>
-<div class="exp-role">Network Intern</div>
-<div class="exp-company">CV. Metronix</div>
-<p class="exp-desc">
-MikroTik configuration, network setup, IP addressing, and troubleshooting.
-</p>
+<div class="research-card">
+<div class="research-image">
+    <img src="https://drive.google.com/thumbnail?id=1jnmlfRsH_ZYrZEIs3RUwAQfknOZqgRbD&sz=w1000"
+         alt="Analysis of Zero Trust Network Access (ZTNA)">
 </div>
 
-<!-- 2020 -->
-<div class="exp-card">
-<div class="exp-dot"></div>
-<div class="exp-year">2020</div>
-<div class="exp-role">Business Owner</div>
-<div class="exp-company">Coffee Shop</div>
-<p class="exp-desc">
-Managed operations, customer service, and business strategy.
+<div class="research-content">
+
+<span class="research-type">
+Published Journal • 2024
+</span>
+
+<h3>
+Analysis of Zero Trust Network Access (ZTNA) with CAPTCHA on Public Websites
+</h3>
+
+<p>
+This study analyzes the implementation of Zero Trust Network Access (ZTNA) integrated with CAPTCHA to improve authentication security and reduce automated attacks on public web applications.
 </p>
+
+<div class="research-tags">
+
+<span>Cyber Security</span>
+
+<span>ZTNA</span>
+
+<span>CAPTCHA</span>
+
 </div>
 
-<!-- 2021 -->
-<div class="exp-card ">
-<div class="exp-dot"></div>
-<div class="exp-year">2021</div>
-<div class="exp-role">Customer Service</div>
-<div class="exp-company">NSS Parepare</div>
-<p class="exp-desc">
-Improved communication and problem-solving skills.
-</p>
+<a
+href="https://journal.midpublisher.com/index.php/tsij/article/view/104"
+target="_blank"
+class="research-btn">
+
+Read Publication
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
 </div>
 
-<!-- 2025 -->
-<div class="exp-card ">
-<div class="exp-dot"></div>
-<div class="exp-year">2025</div>
-<div class="exp-role">Frontend Developer Intern</div>
-<div class="exp-company">DPPKB Parepare</div>
-<p class="exp-desc">
-Developed responsive government system interfaces.
+</div>
+
+<!-- ================================================= -->
+<!-- RESEARCH 2 -->
+<!-- ================================================= -->
+
+<div class="research-card">
+
+<div class="research-image">
+
+<img src="" alt="MSMEs Recommendation">
+
+</div>
+
+<div class="research-content">
+
+<span class="research-type">
+Published Journal • 2025
+</span>
+
+<h3>
+MSMEs Recommendation System using Item-Based Collaborative Filtering and LightGBM Machine Learning
+</h3>
+
+<p>
+Developed a recommendation system for Micro, Small, and Medium Enterprises (MSMEs) using Item-Based Collaborative Filtering combined with the LightGBM algorithm to support digital economy development.
 </p>
+
+<div class="research-tags">
+
+<span>Machine Learning</span>
+
+<span>LightGBM</span>
+
+<span>Recommendation System</span>
+
+</div>
+
+<a
+href="https://jutif.if.unsoed.ac.id/index.php/jurnal/article/view/5292"
+target="_blank"
+class="research-btn">
+
+Read Publication
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+</div>
+
+</div>
+
+<!-- ================================================= -->
+<!-- COMMUNITY SERVICE -->
+<!-- ================================================= -->
+
+<div class="research-card">
+
+<div class="research-image">
+    <img src="https://drive.google.com/thumbnail?id=112xPPHUQkuUmFP01jRjmOA1kIHNZCBD5&sz=w1000"
+         alt="Community Service Publication">
+</div>
+
+<div class="research-content">
+
+<span class="research-type">
+Community Service • 2025
+</span>
+
+<h3>
+Utilization of Augmented Reality to Support the Creation of Interactive Learning Media
+</h3>
+
+<p>
+Developed training materials and scientific publications on the use of Assemblr Edu based on Augmented Reality to support interactive learning media at Showatul Is'ad Islamic Modern Islamic Boarding School.
+</p>
+
+<div class="research-tags">
+
+<span>Augmented Reality</span>
+
+<span>Assemblr Edu</span>
+
+<span>Community Service</span>
+
+</div>
+
+<a
+href="https://publikasi.polije.ac.id/j-dinamika/article/view/4474"
+target="_blank"
+class="research-btn">
+
+Read Publication
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
 </div>
 
 </div>
@@ -1297,149 +2250,230 @@ Developed responsive government system interfaces.
 </div>
 
 </section>
-<section id="projects" class="reveal">
+<section id="projects" class="projects-section reveal">
 
-<div class="container">
+    <div class="container">
 
-<h2 class="title">Featured Projects</h2>
+        <h2 class="title">Featured Projects</h2>
 
-<div class="projects-grid">
+        <div class="projects-grid">
 
-<!-- Library -->
-<div class="project-card project-library">
+            <!-- ================================= -->
+            <!-- PROJECT 1 -->
+            <!-- ================================= -->
 
-<div class="project-icon">📚</div>
+            <div class="project-card">
 
-<div class="project-title">Library Management System</div>
-
-<div class="project-desc">
-Web-based system to manage books, users, and reservations efficiently.
+                <div class="project-image">
+    <img src="https://drive.google.com/thumbnail?id=19ssGCK6l9pxKVwKTRnnR6Yo4dAKjKUNy&sz=w1000"
+         alt="SiPasti">
 </div>
+                <div class="project-content">
 
-<div class="project-tags">
-<span>PHP</span>
-<span>MySQL</span>
-</div>
+                    <span class="project-badge">
+                        Featured Project
+                    </span>
 
-<a href="https://github.com/hafizhahnajwa?tab=repositories" target="_blank" class="project-btn">
-View Project
-</a>
+                    <h3 class="project-title">
+                        SiPasti
+                    </h3>
 
-</div>
+                    <p class="project-subtitle">
+                        Stunting Prevention Information System
+                    </p>
 
-<!-- Chatbot -->
-<div class="project-card project-chatbot">
+                    <p class="project-desc">
+                        A web-based information system developed for DPPKB Kota Parepare to support digital data collection, monitoring, and reporting for stunting prevention programs.
+                    </p>
 
-<div class="project-icon">🤖</div>
+                    <div class="project-tags">
 
-<div class="project-title">Service Chatbot System</div>
+                        <span>Laravel</span>
 
-<div class="project-desc">
-Automated chatbot system to improve communication and service efficiency.
-</div>
+                        <span>Vue.js</span>
 
-<div class="project-tags">
-<span>Python</span>
-<span>AI</span>
-</div>
+                        <span>PostgreSQL</span>
 
-<a href="https://github.com/hafizhahnajwa?tab=repositories" target="_blank" class="project-btn">
-View Project
-</a>
+                        <span>Tailwind</span>
 
-</div>
+                    </div>
 
-<!-- Recommendation -->
-<div class="project-card project-recommend">
+                    <div class="project-buttons">
 
-<div class="project-icon">🎯</div>
+                  <div class="project-buttons">
 
-<div class="project-title">Recommendation System</div>
+    <a href="https://sipasti.space" 
+       class="project-btn" 
+       target="_blank">
 
-<div class="project-desc">
-Machine learning system to recommend products based on user data.
-</div>
+        <i class="fa-solid fa-globe"></i>
 
-<div class="project-tags">
-<span>Python</span>
-<span>ML</span>
-</div>
+        Live Demo
 
-<a href="https://github.com/hafizhahnajwa?tab=repositories" target="_blank" class="project-btn">
-View Project
-</a>
+    </a>
 
 </div>
 
-<!-- DPPKB -->
-<div class="project-card project-dppkb">
+                        <a href="#" class="project-btn github">
 
-<div class="project-icon">🏛️</div>
+                            <i class="fab fa-github"></i>
 
-<div class="project-title">DPPKB Information System</div>
+                            GitHub
 
-<div class="project-desc">
-Frontend development for government information system.
-</div>
+                        </a>
 
-<div class="project-tags">
-<span>Vue.js</span>
-<span>Web</span>
-</div>
+                    </div>
 
-<a href="https://sipasti.pareparekota.go.id/" target="_blank" class="project-btn">
-View Project
-</a>
+                </div>
 
-</div>
+            </div>
 
-<!-- Ecommerce -->
-<div class="project-card project-ecommerce">
+            <!-- ================================= -->
+            <!-- PROJECT 2 -->
+            <!-- ================================= -->
 
-<div class="project-icon">🛍️</div>
+            <div class="project-card">
 
-<div class="project-title">Hijab Ecommerce Platform</div>
+              <div class="project-image">
+               <img src="https://drive.google.com/thumbnail?id=1xwXsOUyVaVncSICj0jUdfOzGmXBb06QB&sz=w1000"
+                     alt="SweetJab Project">
+            </div>
+                <div class="project-content">
 
-<div class="project-desc">
-Ecommerce platform with product management and ordering system.
-</div>
+                    <span class="project-badge">
+                        Machine Learning
+                    </span>
 
-<div class="project-tags">
-<span>PHP</span>
-<span>MySQL</span>
-</div>
+                    <h3 class="project-title">
 
-<a href="https://github.com/hafizhahnajwa?tab=repositories" target="_blank" class="project-btn">
-View Project
-</a>
+                        SweetJab
 
-</div>
+                    </h3>
 
-<!-- Analytics -->
-<div class="project-card project-analytics">
+                    <p class="project-subtitle">
 
-<div class="project-icon">📊</div>
+                        E-WOM Sentiment Analysis
 
-<div class="project-title">Data Analytics Project</div>
+                    </p>
 
-<div class="project-desc">
-Data analysis and visualization using Python and modern tools.
-</div>
+                    <p class="project-desc">
 
-<div class="project-tags">
-<span>Python</span>
-<span>Pandas</span>
-</div>
+                        A web application for customer review sentiment analysis using Support Vector Machine (SVM) to classify positive and negative opinions.
 
-<a href="https://github.com/hafizhahnajwa?tab=repositories" target="_blank" class="project-btn">
-View Project
-</a>
+                    </p>
 
-</div>
+                    <div class="project-tags">
 
-</div>
+                        <span>CodeIgniter</span>
 
-</div>
+                        <span>Python</span>
+
+                        <span>SVM</span>
+
+                        <span>MySQL</span>
+
+                    </div>
+
+                    <div class="project-buttons">
+
+                         <a href="https://sweetjab.com/" 
+               class="project-btn"
+               target="_blank">
+
+                            Live Demo
+
+                        </a>
+
+                        <a href="#" class="project-btn github">
+
+                            <i class="fab fa-github"></i>
+
+                            GitHub
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================================= -->
+            <!-- PROJECT 3 -->
+            <!-- ================================= -->
+
+            <div class="project-card">
+
+               <div class="project-image">
+                  <img src="https://drive.google.com/thumbnail?id=1FwQCSC6EA73_4ALv3PzhCiR47MqkTUg4&sz=w1000" 
+                        alt="Library">
+               </div>
+
+                <div class="project-content">
+
+                    <span class="project-badge">
+
+                        Government Project
+
+                    </span>
+
+                    <h3 class="project-title">
+
+                        Smart Library Reservation
+
+                    </h3>
+
+                    <p class="project-subtitle">
+
+                        Mobile Library Reservation System
+
+                    </p>
+
+                    <p class="project-desc">
+
+                        Reservation system for the public library equipped with barcode attendance, SMTP notification, and route optimization using Dijkstra Algorithm.
+
+                    </p>
+
+                    <div class="project-tags">
+
+                        <span>PHP</span>
+
+                        <span>MySQL</span>
+
+                        <span>Dijkstra</span>
+
+                        <span>SMTP</span>
+
+                    </div>
+
+                    <div class="project-buttons">
+
+                        <a href="#" class="project-btn">
+
+                            <i class="fa-solid fa-globe"></i>
+
+                            Live Demo
+
+                        </a>
+
+                        <a href="#" class="project-btn github">
+
+                            <i class="fab fa-github"></i>
+
+                            GitHub
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 <section id="skills" class="reveal">
