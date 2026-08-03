@@ -209,291 +209,886 @@ color:black;
 }
 
 /* =====================================================
-WELCOME MODERN LEFT LAYOUT
+   WELCOME MODERN PROFESSIONAL HERO (UPGRADED)
 ===================================================== */
 
 #welcome{
-min-height:100vh;
-padding:0 8%;
-display:flex;
-align-items:center;
-justify-content:flex-start;
-background:
-linear-gradient(rgba(12, 28, 51, 0.374),rgba(10,25,47,.95)),
-url("https://images.unsplash.com/photo-1599270613570-a620f2e59f75?q=80&w=1920&auto=format&fit=crop");
-background-size:cover;
-background-position:center;
-position:relative;
+  min-height: 100vh;
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+
+  /* Background: image + layered gradients */
+  background:
+    radial-gradient(800px circle at 10% 20%, rgba(255, 204, 0, .18), transparent 45%),
+    radial-gradient(700px circle at 90% 70%, rgba(56, 189, 248, .16), transparent 45%),
+    linear-gradient(90deg, rgba(8,20,40,.92), rgba(8,20,40,.68), rgba(8,20,40,.86)),
+    url("https://images.unsplash.com/photo-1599270613570-a620f2e59f75?q=80&w=1920&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+
+  /* subtle animated lighting */
+  animation: welcomeBgShift 10s ease-in-out infinite alternate;
 }
 
-/* container */
-.welcome-content{
-max-width:650px;
-z-index:2;
+@keyframes welcomeBgShift{
+  from { background-position: 50% 45%; }
+  to   { background-position: 55% 55%; }
 }
 
-/* small intro */
-.welcome-text{
-color:#ffcc00;
-font-size:16px;
-margin-bottom:15px;
-letter-spacing:1px;
+/* soft overlay */
+#welcome::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 80% 45%, rgba(255,204,0,.22), transparent 35%),
+    linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.35));
+  pointer-events:none;
+  z-index:0;
 }
 
-/* name */
-#welcome h1{
-font-size:clamp(40px,6vw,64px);
-font-weight:700;
-margin-bottom:15px;
-line-height:1.2;
-}
-
-/* subtitle */
-.welcome-sub{
-color:#94a3b8;
-font-size:18px;
-margin-bottom:30px;
-line-height:1.6;
-max-width:500px;
-}
-
-/* button modern */
-#welcome .btn{
-padding:12px 28px;
-font-size:15px;
-border-radius:10px;
-box-shadow:0 0 15px rgba(255,204,0,0.3);
-}
-
-/* glow accent */
+/* right glow */
 #welcome::after{
-content:"";
-position:absolute;
-right:10%;
-top:50%;
-transform:translateY(-50%);
-width:300px;
-height:300px;
-background:radial-gradient(circle,#ffcc00 0%,transparent 70%);
-opacity:.15;
-filter:blur(80px);
+  content:"";
+  position:absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+  height: 380px;
+  background:
+    radial-gradient(circle, rgba(255,204,0,.45), transparent 70%);
+  filter: blur(70px);
+  opacity: .55;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* CONTENT */
+.welcome-content{
+  max-width: 760px;
+  position: relative;
+  z-index: 2;
+
+  animation: fadeSlide .9s ease forwards;
+
+  /* glass-ish container look (lebih modern) */
+  padding: 18px 0;
+}
+
+/* animation */
+@keyframes fadeSlide{
+  from{ opacity:0; transform: translateY(40px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+/* INTRO TEXT */
+.welcome-text{
+  color: #ffcc00;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* optional: bikin highlight kecil sebelum teks */
+.welcome-text::after{
+  content:"";
+  width: 26px;
+  height: 2px;
+  background: linear-gradient(90deg, #ffcc00, rgba(255,204,0,0));
+  border-radius: 999px;
+  display: inline-block;
+  opacity: .9;
+}
+
+/* NAME / TYPING */
+.welcome-title{
+  font-size: clamp(42px, 6vw, 78px);
+  font-weight: 900;
+  line-height: 1.06;
+  margin-bottom: 10px;
+
+  letter-spacing: -0.02em;
+
+  /* gradient text */
+  background: linear-gradient(90deg, #ffffff 0%, #ffcc00 60%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: titleShimmer 4.5s ease-in-out infinite;
+}
+
+@keyframes titleShimmer{
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* typing caret (kalau kamu pakai JS typing, ini bikin caret keliatan keren) */
+#typing{
+  display: inline-block;
+  min-width: 10ch;
+  position: relative;
+  padding-right: 0.15em;
+}
+
+#typing::after{
+  content:"";
+  position:absolute;
+  right: -2px;
+  top: 0.12em;
+  width: 2px;
+  height: 0.8em;
+  background: rgba(255, 204, 0, .95);
+  border-radius: 2px;
+  animation: caretBlink 1s steps(2, end) infinite;
+}
+
+@keyframes caretBlink{
+  50% { opacity: 0; }
+}
+
+/* ROLE */
+.welcome-role{
+  font-size: 20px;
+  color: #e2e8f0;
+  font-weight: 700;
+  margin-bottom: 18px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ROLE badge dot */
+.welcome-role::before{
+  content:"";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,204,0,.95);
+  box-shadow: 0 0 0 6px rgba(255,204,0,.15);
+}
+
+/* DESCRIPTION */
+.welcome-sub{
+  color: #cbd5e1;
+  font-size: 17px;
+  line-height: 1.75;
+  max-width: 620px;
+  margin-bottom: 30px;
+}
+
+/* BUTTON AREA */
+.welcome-button{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* PRIMARY BUTTON */
+#welcome .btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 28px;
+
+  border-radius: 999px;
+  text-decoration: none;
+
+  font-weight: 800;
+  font-size: 14.5px;
+
+  color: #0b1220;
+  background: linear-gradient(90deg, #ffcc00, #ffd84d);
+
+  box-shadow:
+    0 10px 30px rgba(255, 204, 0, .18),
+    0 0 0 1px rgba(255, 204, 0, .35);
+
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#welcome .btn::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: linear-gradient(120deg, rgba(255,255,255,.0), rgba(255,255,255,.45), rgba(255,255,255,.0));
+  transform: translateX(-120%);
+  transition: transform .65s ease;
+}
+
+#welcome .btn:hover{
+  transform: translateY(-4px);
+  filter: saturate(1.05);
+  box-shadow:
+    0 16px 40px rgba(255, 204, 0, .28),
+    0 0 0 1px rgba(255, 204, 0, .55);
+}
+
+#welcome .btn:hover::before{
+  transform: translateX(120%);
+}
+
+/* SECOND BUTTON */
+.btn-outline{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px 28px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,255,255,.22);
+  color: rgba(255,255,255,.92);
+  text-decoration: none;
+
+  font-weight: 750;
+  font-size: 14.5px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255,255,255,.06);
+
+  transition: transform .2s ease, border-color .2s ease, background .2s ease, color .2s ease;
+}
+
+.btn-outline:hover{
+  transform: translateY(-4px);
+  border-color: rgba(255, 204, 0, .9);
+  background: rgba(255, 204, 0, .12);
+  color: #ffd84d;
 }
 
 /* =====================================================
-   ABOUT
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px){
+  #welcome{
+    padding: 0 6%;
+    align-items: center;
+  }
+
+  .welcome-role{
+    font-size: 17px;
+  }
+
+  .welcome-sub{
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .welcome-content{
+    padding: 8px 0;
+  }
+
+  #welcome::after{
+    width: 220px;
+    height: 220px;
+    right: -10%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  #welcome{
+    animation: none;
+  }
+  .welcome-content,
+  .welcome-title{
+    animation: none !important;
+  }
+  #typing::after{
+    animation: none !important;
+    opacity: 1;
+  }
+}
+/* =====================================================
+   ABOUT MODERN PROFILE CARD (UPGRADED)
 ===================================================== */
 
-      .about-section{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      }
+.about-section{
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 70px 6%;
+}
 
-      .about-container{
-      max-width:900px;
-      width:100%;
-      }
+.about-container{
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+}
 
-      .about-card{
-      display:flex;
-      gap:40px;
-      background:rgba(255,255,255,0.05);
-      border-radius:20px;
-      padding:40px;
-      backdrop-filter:blur(10px);
-      border:1px solid rgba(255,255,255,0.1);
-      box-shadow:0 0 40px rgba(0,0,0,0.5);
-      transition:.3s;
-      }
+/* MAIN CARD */
+.about-card{
+  display: flex;
+  align-items: center;
+  gap: 26px;
 
-      .about-card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 0 60px rgba(59,130,246,0.3);
-      }
+  padding: 24px 22px;
 
-      .about-left{
-      text-align:center;
-      }
+  border-radius: 30px;
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 
-     .profile-img{
-      width:200px; /* sebelumnya 140px */
-      height:200px; /* agar tetap bulat sempurna */
-      object-fit:cover;
-      border-radius:50%;
-      border:4px solid #3b82f6;
-      margin-bottom:20px;
-      box-shadow:0 0 20px rgba(59,130,246,0.6);
-      }
-      .status{
-      font-size:14px;
-      color:#94a3b8;
-      }
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
 
-      .dot{
-      width:8px;
-      height:8px;
-      background:#22c55e;
-      display:inline-block;
-      border-radius:50%;
-      margin-right:6px;
-      }
+  position: relative;
+  overflow: hidden;
 
-      .about-name{
-      font-size:28px;
-      margin-bottom:5px;
-      }
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
 
-      .about-role{
-      color:#3b82f6;
-      margin-bottom:15px;
-      }
+/* gradient edge glow (lebih premium) */
+.about-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: linear-gradient(120deg,
+    rgba(255,204,0,.0) 0%,
+    rgba(255,204,0,.35) 35%,
+    rgba(56,189,248,.25) 60%,
+    rgba(255,204,0,.0) 100%);
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events:none;
+  z-index: 0;
+}
 
-      .about-text{
-      color:#cbd5e1;
-      line-height:1.6;
-      margin-bottom:20px;
-      }
+.about-card:hover{
+  transform: translateY(-10px);
+  border-color: rgba(255,204,0,.45);
+  box-shadow:
+    0 0 0 1px rgba(255,204,0,.18),
+    0 0 55px rgba(255,204,0,.16),
+    0 28px 70px rgba(0,0,0,.5);
+}
 
-      .about-stats{
-      display:flex;
-      gap:30px;
-      margin-bottom:20px;
-      }
+.about-card:hover::before{
+  opacity: 1;
+}
 
-      .stat h3{
-      color:#3b82f6;
-      }
+/* isi card di atas pseudo element */
+.about-left,
+.about-right{
+  position: relative;
+  z-index: 1;
+}
 
-      .stat p{
-      color:#94a3b8;
-      font-size:14px;
-      }
+/* LEFT PROFILE */
+.about-left{
+  min-width: 260px;
+  text-align: center;
 
-      .about-social a{
-      color:white;
-      font-size:22px;
-      margin-right:15px;
-      transition:.3s;
-      }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-      .about-social a:hover{
-      color:#3b82f6;
-      transform:scale(1.2);
-      }
+/* PROFILE IMAGE */
+.profile-img{
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
 
+  border: 5px solid rgba(255,204,0,.95);
+  box-shadow:
+    0 0 35px rgba(255,204,0,.42),
+    0 18px 45px rgba(0,0,0,.35);
+
+  transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+}
+
+.profile-img:hover{
+  transform: scale(1.06);
+  border-color: rgba(255,216,77,.98);
+  box-shadow:
+    0 0 55px rgba(255,204,0,.55),
+    0 22px 60px rgba(0,0,0,.45);
+}
+
+/* STATUS */
+.status{
+  margin-top: 18px;
+  color: #cbd5e1;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  padding: 8px 14px;
+
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 999px;
+}
+
+.dot{
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 14px rgba(34,197,94,.6);
+  position: relative;
+}
+
+/* pulse dot */
+.dot::after{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius: 50%;
+  border: 1px solid rgba(34,197,94,.45);
+  opacity: .0;
+  transform: scale(.85);
+  animation: statusPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes statusPulse{
+  0% { opacity: 0; transform: scale(.8); }
+  30% { opacity: .9; }
+  100% { opacity: 0; transform: scale(1.35); }
+}
+
+/* RIGHT CONTENT */
+.about-right{
+  flex: 1;
+  min-width: 0;
+}
+
+/* ABOUT NAME */
+.about-name{
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 850;
+  margin-bottom: 2px;
+  letter-spacing: -0.015em;
+
+  background: linear-gradient(90deg, #ffffff 0%, #ffcc00 55%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: nameShine 5s ease-in-out infinite;
+}
+
+@keyframes nameShine{
+  0% { background-position: 0% 50%; }
+  55% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ROLE */
+.about-role{
+  color: #ffcc00;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/* ABOUT TEXT */
+.about-text{
+  color: #cbd5e1;
+  font-size: 16px;
+  line-height: 1.85;
+  margin-bottom: 26px;
+
+  /* subtle reading polish */
+  text-wrap: pretty;
+}
+
+/* STATS */
+.about-stats{
+  display: flex;
+  gap: 16px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+
+.stat{
+  flex: 1 1 180px;
+  min-width: 160px;
+
+  padding: 14px 18px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+
+.stat:hover{
+  transform: translateY(-6px);
+  border-color: rgba(255,204,0,.35);
+  background: rgba(255,204,0,.08);
+}
+
+.stat h3{
+  color: #ffcc00;
+  font-size: 26px;
+  margin-bottom: 4px;
+  font-weight: 900;
+}
+
+.stat p{
+  color: #94a3b8;
+  font-size: 13.5px;
+  margin: 0;
+  letter-spacing: .02em;
+}
+
+/* SOCIAL */
+.about-social{
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+/* social button */
+.about-social a{
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  color: white;
+
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.1);
+
+  font-size: 20px;
+  text-decoration: none;
+
+  transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease, color .25s ease;
+}
+
+.about-social a:hover{
+  transform: translateY(-5px) scale(1.03);
+  background: rgba(255,204,0,.95);
+  border-color: rgba(255,204,0,.75);
+  box-shadow: 0 0 24px rgba(255,204,0,.35);
+  color: #0f172a;
+}
 
 /* =====================================================
-   EDUCATION
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 850px){
+  .about-card{
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 18px;
+    gap: 18px;
+  }
+
+  .about-left{
+    min-width: unset;
+  }
+
+  .about-stats{
+    justify-content: center;
+  }
+
+  .about-social{
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px){
+  .about-section{
+    padding: 55px 4%;
+  }
+
+  .profile-img{
+    width: 170px;
+    height: 170px;
+  }
+
+  .about-text{
+    font-size: 14.5px;
+  }
+
+  .stat{
+    flex-basis: 140px;
+    padding: 12px 14px;
+  }
+}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .about-card,
+  .profile-img,
+  .stat,
+  .about-social a{
+    transition: none !important;
+  }
+  .dot::after{
+    animation: none !important;
+  }
+  .about-name{
+    animation: none !important;
+  }
+}
+
+/* =====================================================
+   EDUCATION (Improved - Fit to Screen)
 ===================================================== */
 
 .education-section{
-   padding:90px 20px;
-   background:linear-gradient(135deg,#020617,#0f172a);
-   display:flex;
-   justify-content:center;
-   align-items:center;
-   }
+  padding: 80px 20px; /* dari 90px */
+  background:
+    radial-gradient(800px circle at 15% 10%, rgba(59,130,246,.25), transparent 55%),
+    radial-gradient(700px circle at 85% 30%, rgba(16,185,129,.14), transparent 60%),
+    linear-gradient(135deg,#020617,#0f172a);
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.education-section::after{
+  content:"";
+  position:absolute;
+  inset:-45%;
+  background: conic-gradient(from 180deg,
+    rgba(59,130,246,.0),
+    rgba(59,130,246,.22),
+    rgba(16,185,129,.18),
+    rgba(59,130,246,.0)
+  );
+  filter: blur(40px);
+  opacity:.50;
+  animation: eduGlowSpin 10s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes eduGlowSpin{
+  0%{ transform: rotate(0deg); }
+  100%{ transform: rotate(360deg); }
+}
+
+/* <= KUNCI UTAMA: kecilkan lebar & padding card */
 .education-card{
-   max-width:650px;
-   width:100%;
-   margin:auto;
-   background:rgba(255,255,255,.05);
-   backdrop-filter:blur(16px);
-   border:1px solid rgba(255,255,255,.08);
-   border-radius:22px;
-   padding:35px;
-   transition:.4s;
-   }
+  max-width: 560px;     /* dari 650px */
+  width: 100%;
+  margin: auto;
+  position: relative;
+
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 22px;
+
+  padding: 30px 26px;  /* dari 38px 35px */
+  transition: transform .45s ease, box-shadow .45s ease, border-color .45s ease;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.25),
+    0 0 0 1px rgba(59,130,246,.06) inset;
+
+  overflow: hidden;
+}
+
+.education-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    linear-gradient(120deg,
+      rgba(59,130,246,.0),
+      rgba(59,130,246,.55),
+      rgba(16,185,129,.35),
+      rgba(59,130,246,.0)
+    );
+  opacity: .30;
+  filter: blur(12px);
+  transition: opacity .45s ease;
+  pointer-events:none;
+}
+
+.education-card::after{
+  content:"";
+  position:absolute;
+  top:-60%;
+  left:-40%;
+  width: 60%;
+  height: 220%;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0),
+    rgba(255,255,255,.20),
+    rgba(255,255,255,0)
+  );
+  transform: rotate(15deg);
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events:none;
+}
 
 .education-card:hover{
-   transform:translateY(-8px);
-   box-shadow:0 20px 50px rgba(37,99,235,.25);
-   }
+  transform: translateY(-9px);
+  border-color: rgba(96,165,250,.35);
+  box-shadow:
+    0 22px 52px rgba(37,99,235,.25),
+    0 0 0 1px rgba(96,165,250,.18) inset;
+}
+
+.education-card:hover::after{
+  opacity: 1;
+  animation: eduShine 1.0s ease forwards;
+}
+
+@keyframes eduShine{
+  0%{ transform: translateX(-20%) rotate(15deg); }
+  100%{ transform: translateX(260%) rotate(15deg); }
+}
 
 .edu-top{
-   display:flex;
-   flex-direction:column;
-   align-items:center;
-   margin-bottom:25px;
-   }
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-bottom: 18px; /* dari 26 */
+}
 
 .edu-year{
-   display:flex;
-   align-items:center;
-   gap:15px;
-   font-weight:600;
-   font-size:16px;
-   color:#60a5fa;
-   width:100%;
-   }
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 12px;
+  font-weight: 650;
+  font-size: 15px; /* dari 16 */
+  color: #93c5fd;
+  width: 100%;
+  letter-spacing: .2px;
+}
 
 .edu-line{
-   flex:1;
-   height:3px;
-   background:linear-gradient(90deg,#3b82f6,#60a5fa);
-   border-radius:20px;
-   }
+  flex: 1;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  box-shadow: 0 0 16px rgba(59,130,246,.28);
+}
 
 .edu-icon{
-   margin-top:18px;
-   width:70px;
-   height:70px;
-   background:#2563eb;
-   border-radius:50%;
-   display:flex;
-   align-items:center;
-   justify-content:center;
-   font-size:30px;
-   color:#fff;
-   box-shadow:0 0 30px rgba(37,99,235,.4);
-   }
+  margin-top: 14px; /* dari 18 */
+  width: 70px;      /* dari 76 */
+  height: 70px;     /* dari 76 */
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,.25), transparent 45%),
+    linear-gradient(135deg, rgba(37,99,235,1), rgba(96,165,250,1));
+
+  border-radius: 50%;
+  font-size: 28px; /* dari 30 */
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.12) inset,
+    0 12px 28px rgba(37,99,235,.32),
+    0 0 30px rgba(96,165,250,.22);
+}
 
 .edu-content{
-   text-align:center;
-   }
+  text-align:center;
+  padding: 4px 6px 0;
+}
 
 .edu-content h3{
-   font-size:28px;
-   margin-bottom:10px;
-   }
+  font-size: 28px; /* dari 30 */
+  margin: 8px 0 10px;
+  color: #e5e7eb;
+  letter-spacing: .2px;
+}
 
 .edu-content h4{
-   font-size:20px;
-   color:#60a5fa;
-   margin-bottom:15px;
-   }
+  font-size: 19px; /* dari 20 */
+  margin: 0 0 12px;
+  color: #93c5fd;
+  font-weight: 600;
+}
 
 .edu-content p{
-   color:#cbd5e1;
-   margin-bottom:8px;
-   font-size:16px;
-   }
+  color: #cbd5e1;
+  margin: 0 0 8px;
+  font-size: 15.5px; /* sedikit turun */
+  line-height: 1.55;
+}
 
 .edu-badges{
-   display:flex;
-   justify-content:center;
-   flex-wrap:wrap;
-   gap:12px;
-   margin-top:25px;
-   }
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap: 10px;    /* dari 12 */
+  margin-top: 18px; /* dari 26 */
+}
 
 .edu-badges span{
-   padding:10px 18px;
-   border-radius:30px;
-   background:rgba(59,130,246,.15);
-   border:1px solid rgba(96,165,250,.3);
-   font-size:14px;
-   color:#fff;
-   }
+  padding: 9px 14px;  /* dari 10px 16px */
+  border-radius: 999px;
 
+  background: rgba(59,130,246,.14);
+  border: 1px solid rgba(96,165,250,.35);
+
+  font-size: 13px; /* dari 13.5 */
+  color: #f8fafc;
+
+  box-shadow: 0 0 0 1px rgba(255,255,255,.03) inset;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+
+.edu-badges span:hover{
+  transform: translateY(-2px);
+  background: rgba(59,130,246,.22);
+  border-color: rgba(96,165,250,.55);
+}
+
+/* Responsive */
+@media (max-width: 520px){
+  .education-section{ padding: 68px 14px; }
+  .education-card{ padding: 24px 16px; border-radius: 18px; max-width: 520px; }
+  .edu-content h3{ font-size: 25px; }
+  .edu-icon{ width: 64px; height: 64px; font-size: 26px; }
+  .edu-badges{ margin-top: 14px; }
+}
+
+@media (max-width: 380px){
+  .edu-content h3{ font-size: 23px; }
+  .edu-content h4{ font-size: 18px; }
+}
 /* =====================================================
    EXPERIENCE SECTION
 ===================================================== */
-
 .experience-section{
     padding:90px 20px;
-    background:linear-gradient(135deg,#020617,#0f172a);
+    background: linear-gradient(135deg,#020617,#0f172a);
 }
 
 .experience-section .container{
@@ -504,12 +1099,11 @@ filter:blur(80px);
 /* ==========================
    TITLE
 ========================== */
-
 .experience-section .title{
     text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #FFD54A;   /* Warna kuning */
+    color: #FFD54A; /* Warna kuning */
     margin-bottom: 60px;
     letter-spacing: 1px;
 }
@@ -522,7 +1116,6 @@ filter:blur(80px);
 /* =====================================================
    TRACK
 ===================================================== */
-
 .exp-track{
     display:flex;
     flex-direction:column;
@@ -532,189 +1125,209 @@ filter:blur(80px);
 /* =====================================================
    CARD
 ===================================================== */
-
 .exp-card{
-
     display:flex;
     align-items:center;
     gap:20px;
 
-    background:rgba(255,255,255,.05);
+    background: rgba(255,255,255,.05);
+    backdrop-filter: blur(18px);
 
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,.08);
-
+    border: 1px solid rgba(255,255,255,.08);
     border-radius:22px;
 
     padding:22px;
 
-    transition:.35s ease;
-
+    transition: .35s ease;
     overflow:hidden;
 
     position:relative;
+}
 
+/* animasi border/hover lebih halus */
+.exp-card:hover{
+    transform: translateY(-6px);
+    border-color:#60a5fa;
+    box-shadow:0 20px 40px rgba(59,130,246,.20);
 }
 
 .exp-card::before{
-
     content:"";
-
     position:absolute;
 
     width:220px;
     height:220px;
 
     background:#2563eb;
-
     right:-120px;
     top:-120px;
 
     border-radius:50%;
-
-    filter:blur(100px);
-
+    filter: blur(100px);
     opacity:.15;
 
     transition:.35s;
-
-}
-
-.exp-card:hover{
-
-    transform:translateY(-6px);
-
-    border-color:#60a5fa;
-
-    box-shadow:0 20px 40px rgba(59,130,246,.20);
-
 }
 
 .exp-card:hover::before{
-
     opacity:.28;
-
 }
 
 /* Highlight MBKM */
-
 .exp-card.active{
-
     border:1px solid rgba(255,204,0,.45);
-
     box-shadow:0 10px 35px rgba(255,204,0,.15);
-
 }
 
 .exp-card.active::before{
-
     background:#FFD54A;
-
 }
 
 /* =====================================================
    PHOTO
 ===================================================== */
-
 .exp-photo{
-
     width:250px;
-
     height:180px;
-
     flex-shrink:0;
-
+    display:flex;
 }
 
 .exp-photo img{
-
     width:100%;
-
     height:100%;
-
     object-fit:cover;
-
     display:block;
 
     border-radius:18px;
-
     border:2px solid rgba(255,255,255,.08);
 
     transition:.4s;
-
     box-shadow:0 12px 28px rgba(0,0,0,.25);
-
 }
 
 .exp-photo img:hover{
-
     transform:scale(1.04);
-
 }
 
 /* =====================================================
    CONTENT
 ===================================================== */
-
 .exp-info{
-
     flex:1;
+    min-width:0; /* penting biar text gak overflow saat flex */
+}
 
+/* optional: hilangkan margin default h3/h4/p */
+.exp-role,
+.exp-company,
+.exp-desc{
+    margin: 0;
 }
 
 .exp-year{
-
     display:inline-block;
-
-    background:rgba(59,130,246,.12);
-
+    background: rgba(59,130,246,.12);
     color:#60a5fa;
 
     padding:7px 15px;
-
     border-radius:30px;
 
     font-size:13px;
-
     font-weight:600;
 
     margin-bottom:15px;
-
 }
 
 .exp-role{
-
     font-size:24px;
-
     color:#fff;
-
     font-weight:700;
-
     margin-bottom:6px;
-
 }
 
 .exp-company{
-
     color:#94a3b8;
-
     font-size:15px;
-
     margin-bottom:15px;
-
+    font-weight:600; /* biar lebih terasa */
 }
 
 .exp-desc{
-
     color:#d1d5db;
-
     font-size:14px;
-
     line-height:1.8;
-
     margin-bottom:18px;
+}
 
+/* =====================================================
+   SKILLS
+===================================================== */
+.exp-skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.exp-skills span{
+    background:rgba(59,130,246,.10);
+    color:#93c5fd;
+
+    border:1px solid rgba(59,130,246,.25);
+    border-radius:30px;
+
+    padding:8px 15px;
+    font-size:12px;
+
+    transition:.3s;
+}
+
+.exp-skills span:hover{
+    background:#2563eb;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width:900px){
+    .exp-card{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .exp-photo{
+        width:100%;
+        max-width:320px;
+        height:220px;
+    }
+
+    .exp-skills{
+        justify-content:center;
+    }
+}
+
+@media (max-width:600px){
+    .experience-section{
+        padding:70px 15px;
+    }
+
+    .experience-section .title{
+        font-size:1.9rem;
+    }
+
+    .exp-role{
+        font-size:20px;
+    }
+
+    .exp-company{
+        font-size:14px;
+    }
+
+    .exp-desc{
+        font-size:13px;
+    }
 }
 
 /* =====================================================
@@ -1857,238 +2470,240 @@ transform:translateY(-10vh) rotate(360deg);
 </div>
 
 </nav>
-<section id="welcome">
+<section id="welcome" class="welcome" aria-labelledby="welcome-title">
+  <div class="welcome-content">
+    <p class="welcome-text" id="welcome-greeting">
+      Hello, I'm 👋
+    </p>
 
-<div class="welcome-content">
+    <h1 class="welcome-title" id="welcome-title">
+      <span class="typing-label"> </span>
+      <span id="typing" aria-live="polite"></span>
+    </h1>
 
-<p class="welcome-text">
-Hi, my name is
-</p>
+    <p class="welcome-role">
+      Information Systems Graduate | Software Developer
+    </p>
 
-<h1 id="typing"></h1>
+    <p class="welcome-sub">
+      I design and develop modern web applications, information systems,
+      and data-driven digital solutions with a focus on creating efficient
+      and impactful technology.
+    </p>
 
-<p class="welcome-sub">
-I design and develop modern web applications, information systems, and intelligent digital solutions.
-</p>
-
-<a href="#about" class="btn">
-View My Profile
-</a>
-
-</div>
-
+    <div class="welcome-button" role="group" aria-label="Quick links">
+      <a href="#about" class="btn">View My Profile</a>
+      <a href="#projects" class="btn-outline">View Projects</a>
+    </div>
+  </div>
 </section>
-<section id="about" class="about-section reveal">
-<div class="about-container">
+<section id="about" class="about-section reveal" aria-labelledby="about-title">
+  <div class="about-container">
+    <div class="about-card">
+      <!-- PROFILE IMAGE -->
+      <div class="about-left">
+        <img
+          src="https://github.com/hafizhahnajwaa.png"
+          class="profile-img"
+          alt="Hafizhah Najwa profile photo"
+        />
 
-<div class="about-card">
+        <div class="status" role="status" aria-live="polite">
+          <span class="dot" aria-hidden="true"></span>
+          Available for Opportunities
+        </div>
+      </div>
 
-<div class="about-left">
+      <!-- ABOUT CONTENT -->
+      <div class="about-right">
+        <h2 class="about-name" id="about-title">Hafizhah Najwa</h2>
 
-<img src="https://github.com/hafizhahnajwaa.png" class="profile-img">
+        <div class="about-role">
+          Information Systems Graduate • Software Developer • System Analyst
+        </div>
 
-<div class="status">
-<span class="dot"></span>
-Available for Projects
-</div>
+        <p class="about-text">
+          I am an Information Systems graduate passionate about developing web applications,
+          information systems, and data-driven solutions. I have experience in system analysis,
+          UML modeling, database design, and software development using modern technologies.
+          <br />
+          <br />
+          I enjoy transforming ideas into meaningful digital solutions, exploring new technologies,
+          and continuously improving my skills in software engineering and data analytics.
+        </p>
 
-</div>
+        <!-- STATS -->
+        <div class="about-stats" role="group" aria-label="About statistics">
+          <div class="stat">
+            <h3>10+</h3>
+            <p>Projects</p>
+          </div>
 
+          <div class="stat">
+            <h3>4+</h3>
+            <p>Systems Developed</p>
+          </div>
 
-<div class="about-right">
+          <div class="stat">
+            <h3>10+</h3>
+            <p>Technologies</p>
+          </div>
+        </div>
 
-<h2 class="about-name">Hafizhah Najwa</h2>
+        <!-- SOCIAL MEDIA -->
+        <div class="about-social" role="navigation" aria-label="Social media links">
+          <a href="https://github.com/hafizhahnajwaa" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
 
-<div class="about-role">
-Information Systems Student • Web Developer • Data Enthusiast
-</div>
+          <a
+            href="https://www.linkedin.com/in/hafizhah-najwa-586740265/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+          </a>
 
-<p class="about-text">
-I am passionate about building web applications and working with data.
-I combine creativity and technology to create meaningful digital solutions.
-I enjoy learning new technologies, exploring design ideas, and continuously improving my skills.
-</p>
-
-
-<div class="about-stats">
-
-<div class="stat">
-<h3>6+</h3>
-<p>Projects</p>
-</div>
-
-<div class="stat">
-<h3>2+</h3>
-<p>Years Learning</p>
-</div>
-
-<div class="stat">
-<h3>5+</h3>
-<p>Technologies</p>
-</div>
-
-</div>
-
-
-<div class="about-social">
-
-<a href="https://github.com/hafizhahnajwaa" target="_blank">
-<i class="fab fa-github"></i>
-</a>
-
-<a href="https://www.linkedin.com/in/hafizhah-najwa-586740265/" target="_blank">
-<i class="fab fa-linkedin"></i>
-</a>
-
-<a href="https://www.instagram.com/hafizhahnajwaa/" target="_blank">
-<i class="fab fa-instagram"></i>
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+          <a
+            href="https://www.instagram.com/hafizhahnajwaa/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-
 <section id="education" class="education-section reveal">
+  <div class="container">
+    <header class="section-header">
+      <!-- <p class="section-eyebrow">Education</p> -->
+      <h2 class="title">Education Journey</h2>
+      <!-- <p class="section-subtitle">Ringkasan perjalanan pendidikan saya</p>  -->
+    </header>
 
-    <div class="container">
-
-        <h2 class="title">Education Journey</h2>
-
-        <div class="education-card">
-
-            <div class="edu-top">
-
-                <div class="edu-year">
-                    <span>2022</span>
-                    <div class="edu-line"></div>
-                    <span>2026</span>
-                </div>
-
-                <div class="edu-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-
-            </div>
-
-            <div class="edu-content">
-
-                <h3>Bachelor of Computer Science (S.Kom.)</h3>
-
-                <h4>Institut Teknologi Bacharuddin Jusuf Habibie</h4>
-
-                <p>Faculty of Science</p>
-
-                <p>Information Systems Study Program</p>
-
-                <div class="edu-badges">
-
-                    <span>🎓 Graduated</span>
-
-                    <span>🏅 Cum Laude</span>
-
-                    <span>⭐ GPA 3.86 / 4.00</span>
-
-                </div>
-
-            </div>
-
+    <article class="education-card" aria-label="Education details">
+      <div class="edu-top">
+        <div class="edu-year">
+          <span>2022</span>
+          <span class="edu-line" aria-hidden="true"></span>
+          <span>2026</span>
         </div>
 
-    </div>
+        <div class="edu-icon" aria-hidden="true">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+      </div>
 
+      <div class="edu-content">
+        <h3>
+          Bachelor of Computer Science <span class="edu-degree">(S.Kom.)</span>
+        </h3>
+
+        <h4>Institut Teknologi Bacharuddin Jusuf Habibie</h4>
+
+        <p>
+          Faculty of Science — Information Systems Study Program
+        </p>
+
+        <div class="edu-badges">
+          <span>
+            <i class="fas fa-check-circle" aria-hidden="true"></i>
+            Graduated
+          </span>
+
+          <span>
+            <i class="fas fa-trophy" aria-hidden="true"></i>
+            Cum Laude
+          </span>
+
+          <span>
+            <i class="fas fa-star" aria-hidden="true"></i>
+            GPA <strong>3.86</strong> / 4.00
+          </span>
+        </div>
+      </div>
+    </article>
+  </div>
 </section>
 
-</section>
 <section id="experience" class="experience-section reveal">
+  <div class="container">
+    <h2 class="title">Work Experience</h2>
 
-    <div class="container">
+    <div class="exp-track">
 
-        <h2 class="title">Work Experience</h2>
-
-        <div class="exp-track">
-
-            <!-- MBKM -->
-            <div class="exp-card active">
-
-                <div class="exp-photo">
-                  <img src="https://drive.google.com/thumbnail?id=1l5vvN2Qn3sZWq7ARWNGlh_E7LiVesDoe&sz=w1000"
-                        alt="MBKM Documentation">
-               </div>
-
-                <div class="exp-info">
-
-                    <span class="exp-year">February 2025 – July 2025</span>
-
-                    <h3 class="exp-role">
-                        Data Analyst & Frontend Developer
-                    </h3>
-
-                    <h4 class="exp-company">
-                        MBKM Program • DPPKB Kota Parepare
-                    </h4>
-
-                    <p class="exp-desc">
-                        Contributed to the development of the SiPasti information system by analyzing user requirements, designing responsive frontend interfaces, and supporting database implementation to improve public services.
-                    </p>
-
-                    <div class="exp-skills">
-                        <span>Laravel</span>
-                        <span>PHP</span>
-                        <span>MySQL</span>
-                        <span>Frontend</span>
-                        <span>Data Analysis</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- BULOG -->
-
-            <div class="exp-card">
-
-                <div class="exp-photo">
-                  <img src="https://drive.google.com/thumbnail?id=18X4efP0OcOGgQB7wVMnepvZwSrrKErHm&sz=w1000"
-                        alt="BULOG Documentation">
-               </div>
-
-                <div class="exp-info">
-
-                    <span class="exp-year">May 2026 – June 2026</span>
-
-                    <h3 class="exp-role">
-                        Food Assistance Verification
-                    </h3>
-
-                    <h4 class="exp-company">
-                        Perum BULOG Branch Parepare
-                    </h4>
-
-                    <p class="exp-desc">
-                        Verified and validated beneficiary data, coordinated with field officers, and prepared verification reports to support the implementation of the National Food Assistance Program.
-                    </p>
-
-                    <div class="exp-skills">
-                        <span>Verification</span>
-                        <span>Validation</span>
-                        <span>Reporting</span>
-                        <span>Teamwork</span>
-                    </div>
-
-                </div>
-
-            </div>
-
+      <!-- MBKM -->
+      <div class="exp-card active">
+        <div class="exp-photo">
+          <img
+            src="https://drive.google.com/thumbnail?id=1l5vvN2Qn3sZWq7ARWNGlh_E7LiVesDoe&sz=w1000"
+            alt="MBKM Program Documentation"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+          />
         </div>
 
-    </div>
+        <div class="exp-info">
+          <span class="exp-year">Feb 2025 – Jul 2025</span>
 
+          <h3 class="exp-role">Data Analyst & Frontend Developer</h3>
+
+          <h4 class="exp-company">MBKM Program • DPPKB Kota Parepare</h4>
+
+          <p class="exp-desc">
+            Contributed to the development of the SiPasti information system by analyzing user requirements,
+            designing responsive frontend interfaces, and supporting database implementation to improve public services.
+          </p>
+
+          <div class="exp-skills" aria-label="Skills">
+            <span>Laravel</span>
+            <span>PHP</span>
+            <span>MySQL</span>
+            <span>Frontend</span>
+            <span>Data Analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BULOG -->
+      <div class="exp-card">
+        <div class="exp-photo">
+          <img
+            src="https://drive.google.com/thumbnail?id=18X4efP0OcOGgQB7wVMnepvZwSrrKErHm&sz=w1000"
+            alt="Perum BULOG Branch Parepare Documentation"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+          />
+        </div>
+
+        <div class="exp-info">
+          <span class="exp-year">May 2026 – Jun 2026</span>
+
+          <h3 class="exp-role">Food Assistance Verification</h3>
+
+          <h4 class="exp-company">Perum BULOG Branch Parepare</h4>
+
+          <p class="exp-desc">
+            Verified and validated beneficiary data, coordinated with field officers, and prepared verification reports
+            to support the implementation of the National Food Assistance Program.
+          </p>
+
+          <div class="exp-skills" aria-label="Skills">
+            <span>Verification</span>
+            <span>Validation</span>
+            <span>Reporting</span>
+            <span>Teamwork</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 <section id="research" class="research-section reveal">
 
@@ -2251,230 +2866,137 @@ Read Publication
 
 </section>
 <section id="projects" class="projects-section reveal">
-
-    <div class="container">
-
-        <h2 class="title">Featured Projects</h2>
-
-        <div class="projects-grid">
-
-            <!-- ================================= -->
-            <!-- PROJECT 1 -->
-            <!-- ================================= -->
-
-            <div class="project-card">
-
-                <div class="project-image">
-    <img src="https://drive.google.com/thumbnail?id=19ssGCK6l9pxKVwKTRnnR6Yo4dAKjKUNy&sz=w1000"
-         alt="SiPasti">
-</div>
-                <div class="project-content">
-
-                    <span class="project-badge">
-                        Featured Project
-                    </span>
-
-                    <h3 class="project-title">
-                        SiPasti
-                    </h3>
-
-                    <p class="project-subtitle">
-                        Stunting Prevention Information System
-                    </p>
-
-                    <p class="project-desc">
-                        A web-based information system developed for DPPKB Kota Parepare to support digital data collection, monitoring, and reporting for stunting prevention programs.
-                    </p>
-
-                    <div class="project-tags">
-
-                        <span>Laravel</span>
-
-                        <span>Vue.js</span>
-
-                        <span>PostgreSQL</span>
-
-                        <span>Tailwind</span>
-
-                    </div>
-
-                    <div class="project-buttons">
-
-                  <div class="project-buttons">
-
-    <a href="https://sipasti.space" 
-       class="project-btn" 
-       target="_blank">
-
-        <i class="fa-solid fa-globe"></i>
-
-        Live Demo
-
-    </a>
-
-</div>
-
-                        <a href="#" class="project-btn github">
-
-                            <i class="fab fa-github"></i>
-
-                            GitHub
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- ================================= -->
-            <!-- PROJECT 2 -->
-            <!-- ================================= -->
-
-            <div class="project-card">
-
-              <div class="project-image">
-               <img src="https://drive.google.com/thumbnail?id=1xwXsOUyVaVncSICj0jUdfOzGmXBb06QB&sz=w1000"
-                     alt="SweetJab Project">
-            </div>
-                <div class="project-content">
-
-                    <span class="project-badge">
-                        Machine Learning
-                    </span>
-
-                    <h3 class="project-title">
-
-                        SweetJab
-
-                    </h3>
-
-                    <p class="project-subtitle">
-
-                        E-WOM Sentiment Analysis
-
-                    </p>
-
-                    <p class="project-desc">
-
-                        A web application for customer review sentiment analysis using Support Vector Machine (SVM) to classify positive and negative opinions.
-
-                    </p>
-
-                    <div class="project-tags">
-
-                        <span>CodeIgniter</span>
-
-                        <span>Python</span>
-
-                        <span>SVM</span>
-
-                        <span>MySQL</span>
-
-                    </div>
-
-                    <div class="project-buttons">
-
-                         <a href="https://sweetjab.com/" 
-               class="project-btn"
-               target="_blank">
-
-                            Live Demo
-
-                        </a>
-
-                        <a href="#" class="project-btn github">
-
-                            <i class="fab fa-github"></i>
-
-                            GitHub
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- ================================= -->
-            <!-- PROJECT 3 -->
-            <!-- ================================= -->
-
-            <div class="project-card">
-
-               <div class="project-image">
-                  <img src="https://drive.google.com/thumbnail?id=1FwQCSC6EA73_4ALv3PzhCiR47MqkTUg4&sz=w1000" 
-                        alt="Library">
-               </div>
-
-                <div class="project-content">
-
-                    <span class="project-badge">
-
-                        Government Project
-
-                    </span>
-
-                    <h3 class="project-title">
-
-                        Smart Library Reservation
-
-                    </h3>
-
-                    <p class="project-subtitle">
-
-                        Mobile Library Reservation System
-
-                    </p>
-
-                    <p class="project-desc">
-
-                        Reservation system for the public library equipped with barcode attendance, SMTP notification, and route optimization using Dijkstra Algorithm.
-
-                    </p>
-
-                    <div class="project-tags">
-
-                        <span>PHP</span>
-
-                        <span>MySQL</span>
-
-                        <span>Dijkstra</span>
-
-                        <span>SMTP</span>
-
-                    </div>
-
-                    <div class="project-buttons">
-
-                        <a href="#" class="project-btn">
-
-                            <i class="fa-solid fa-globe"></i>
-
-                            Live Demo
-
-                        </a>
-
-                        <a href="#" class="project-btn github">
-
-                            <i class="fab fa-github"></i>
-
-                            GitHub
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+  <div class="container">
+    <h2 class="title">Featured Projects</h2>
+
+    <div class="projects-grid">
+      <!-- PROJECT 1 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img
+            src="https://drive.google.com/thumbnail?id=19ssGCK6l9pxKVwKTRnnR6Yo4dAKjKUNy&sz=w1000"
+            alt="SiPasti"
+            loading="lazy"
+          />
         </div>
 
-    </div>
+        <div class="project-content">
+          <span class="project-badge">Featured Project</span>
 
+          <h3 class="project-title">SiPasti</h3>
+          <p class="project-subtitle">Stunting Prevention Information System</p>
+
+          <p class="project-desc">
+            A web-based information system developed for DPPKB Kota Parepare to support digital data
+            collection, monitoring, and reporting for stunting prevention programs.
+          </p>
+
+          <div class="project-tags" aria-label="Project tags">
+            <span>Laravel</span>
+            <span>Vue.js</span>
+            <span>PostgreSQL</span>
+            <span>Tailwind</span>
+          </div>
+
+          <div class="project-buttons">
+            <a href="#" class="project-btn" aria-label="Live Demo SiPasti">
+              <i class="fa-solid fa-globe"></i>
+              Live Demo
+            </a>
+
+            <a href="#" class="project-btn github" aria-label="GitHub SiPasti">
+              <i class="fab fa-github"></i>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img
+            src="https://drive.google.com/thumbnail?id=1xwXsOUyVaVncSICj0jUdfOzGmXBb06QB&sz=w1000"
+            alt="SweetJab Project"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="project-content">
+          <span class="project-badge">Machine Learning</span>
+
+          <h3 class="project-title">SweetJab</h3>
+          <p class="project-subtitle">E-WOM Sentiment Analysis</p>
+
+          <p class="project-desc">
+            A web application for customer review sentiment analysis using Support Vector Machine (SVM)
+            to classify positive and negative opinions.
+          </p>
+
+          <div class="project-tags" aria-label="Project tags">
+            <span>CodeIgniter</span>
+            <span>Python</span>
+            <span>SVM</span>
+            <span>MySQL</span>
+          </div>
+
+          <div class="project-buttons">
+            <a href="#" class="project-btn" aria-label="Live Demo SweetJab">
+              <i class="fa-solid fa-globe"></i>
+              Live Demo
+            </a>
+
+            <a href="#" class="project-btn github" aria-label="GitHub SweetJab">
+              <i class="fab fa-github"></i>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card">
+        <div class="project-image">
+          <img
+            src="https://drive.google.com/thumbnail?id=1FwQCSC6EA73_4ALv3PzhCiR47MqkTUg4&sz=w1000"
+            alt="Smart Library Reservation"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="project-content">
+          <span class="project-badge">Government Project</span>
+
+          <h3 class="project-title">Smart Library Reservation</h3>
+          <p class="project-subtitle">Mobile Library Reservation System</p>
+
+          <p class="project-desc">
+            Reservation system for the public library equipped with barcode attendance, SMTP notification,
+            and route optimization using Dijkstra Algorithm.
+          </p>
+
+          <div class="project-tags" aria-label="Project tags">
+            <span>PHP</span>
+            <span>MySQL</span>
+            <span>Dijkstra</span>
+            <span>SMTP</span>
+          </div>
+
+          <div class="project-buttons">
+            <a href="#" class="project-btn" aria-label="Live Demo Smart Library Reservation">
+              <i class="fa-solid fa-globe"></i>
+              Live Demo
+            </a>
+
+            <a href="#" class="project-btn github" aria-label="GitHub Smart Library Reservation">
+              <i class="fab fa-github"></i>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <section id="skills" class="reveal">
 
@@ -2484,16 +3006,20 @@ Read Publication
 
 <div class="skills-container">
 
+
 <!-- Frontend -->
 <div class="skill">
 <div class="skill-header">
 <span class="skill-name">Frontend Development (HTML, CSS, JavaScript, Vue)</span>
 <span class="skill-percent">50%</span>
 </div>
+
 <div class="skill-bar">
 <div class="skill-fill" style="width:50%"></div>
 </div>
 </div>
+
+
 
 <!-- Backend -->
 <div class="skill">
@@ -2501,21 +3027,55 @@ Read Publication
 <span class="skill-name">Backend Development (PHP, MySQL)</span>
 <span class="skill-percent">50%</span>
 </div>
+
 <div class="skill-bar">
 <div class="skill-fill" style="width:50%"></div>
 </div>
 </div>
 
+
+
+<!-- UML -->
+<div class="skill">
+<div class="skill-header">
+<span class="skill-name">System Analysis & UML (Use Case, Activity Diagram, Class Diagram)</span>
+<span class="skill-percent">80%</span>
+</div>
+
+<div class="skill-bar">
+<div class="skill-fill" style="width:80%"></div>
+</div>
+</div>
+
+
+
+<!-- Database -->
+<div class="skill">
+<div class="skill-header">
+<span class="skill-name">Database Design (ERD, MySQL)</span>
+<span class="skill-percent">75%</span>
+</div>
+
+<div class="skill-bar">
+<div class="skill-fill" style="width:75%"></div>
+</div>
+</div>
+
+
+
 <!-- Python -->
 <div class="skill">
 <div class="skill-header">
 <span class="skill-name">Python & Data Analysis</span>
-<span class="skill-percent">50%</span>
+<span class="skill-percent">60%</span>
 </div>
+
 <div class="skill-bar">
-<div class="skill-fill" style="width:50%"></div>
+<div class="skill-fill" style="width:60%"></div>
 </div>
 </div>
+
+
 
 <!-- Networking -->
 <div class="skill">
@@ -2523,10 +3083,13 @@ Read Publication
 <span class="skill-name">Networking & MikroTik</span>
 <span class="skill-percent">50%</span>
 </div>
+
 <div class="skill-bar">
 <div class="skill-fill" style="width:50%"></div>
 </div>
 </div>
+
+
 
 <!-- Microsoft Office -->
 <div class="skill">
@@ -2534,21 +3097,27 @@ Read Publication
 <span class="skill-name">Microsoft Office (Word, Excel, PowerPoint)</span>
 <span class="skill-percent">80%</span>
 </div>
+
 <div class="skill-bar">
 <div class="skill-fill" style="width:80%"></div>
 </div>
 </div>
 
-<!-- UI Design -->
+
+
+<!-- Design -->
 <div class="skill">
 <div class="skill-header">
-<span class="skill-name">UI Design & Creative Thinking</span>
-<span class="skill-percent">50%</span>
+<span class="skill-name">Graphic Design & UI Design (Canva)</span>
+<span class="skill-percent">75%</span>
 </div>
+
 <div class="skill-bar">
-<div class="skill-fill" style="width:50%"></div>
+<div class="skill-fill" style="width:75%"></div>
 </div>
 </div>
+
+
 
 </div>
 
